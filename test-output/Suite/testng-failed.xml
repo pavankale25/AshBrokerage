@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [Suite]" guice-stage="DEVELOPMENT">
+  <test thread-count="5" name="sanity(failed)">
+    <groups>
+      <run>
+        <include name="A"/>
+      </run>
+    </groups>
+    <classes>
+      <class name="AshBrokerage.test.LoginPage_test">
+        <methods>
+          <include name="verifyDashBoardPage"/>
+          <include name="setup"/>
+          <include name="login"/>
+          <include name="reportsetup"/>
+          <include name="verifiedLogo"/>
+        </methods>
+      </class> <!-- AshBrokerage.test.LoginPage_test -->
+    </classes>
+  </test> <!-- sanity(failed) -->
+</suite> <!-- Failed suite [Suite] -->

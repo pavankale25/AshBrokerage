@@ -1,0 +1,132 @@
+package AshBrokerage.main;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
+
+public class QuoteResultspage {
+	public WebDriver driver;
+	public QuoteResultspage(WebDriver driver) {
+		this.driver = driver;
+		PageFactory.initElements(driver, this);
+	}
+	
+	@FindBy(xpath="//button[@class='btn btn-primary rounded-md uppercase btn-sm lg:btn-sm']")
+	private WebElement showMoreProduct_btn;
+	
+//	@FindBy(xpath="(//button[text()=\"Apply\"])[2]")
+	@FindBy(xpath="(//button[@class=\"btn w-[5rem] btn-primary rounded-md uppercase btn-sm lg:btn-sm\"])[2]")
+	private WebElement protective_journey;
+	
+	@FindBy(xpath="//p[text()='Protective']")
+	private WebElement actText;
+	
+	@FindBy(xpath="//*[@id=\"page-content\"]/div/div[2]/div/div[1]/div/div/div[2]/div/div[1]/div/label")
+	private WebElement editBtn;
+	
+	@FindBy(xpath="(//div[@class=\"indicator svelte-17l1npl\"])[1]")
+	private WebElement healthClassDropdown;
+	
+	@FindBy(xpath="//div[@class='listItem']/div[@class='item active hover svelte-3e0qet']")
+	private WebElement standardNonTobacco;
+	
+	@FindBy(xpath="//button[@class=\"rounded-md btn btn-primary uppercase btn-sm ml-7 mb-4\"]")
+	private WebElement applyBtn;  //protective journey
+	
+	@FindBy(xpath="//input[@class=\"input w-full input-sm pl-3 leading-6 text-answer outline outline-1 outline-primary pl-5 focus:outline-none focus:border-primary\"]")
+	private WebElement fa;
+	
+	@FindBy(xpath="(//button[text()='Apply'])[3]")
+	private WebElement applybtn;  //for corebridge journey
+	
+	@FindBy(xpath="(//button[contains(text(),'Apply')])[2]")
+	private WebElement applyButton;  //symetra journey
+	
+	@FindBy(xpath="(//button[@class='btn w-[5rem] btn-primary rounded-md uppercase btn-sm lg:btn-sm'])[4]")
+	private WebElement PacificLifeApplyBtn;
+	
+	@FindBy(xpath="(//div/div[@class='mr-3 pt-2'])[4]")
+	private WebElement pecificLifeText;
+	
+	public void ClickedOnShowmoreProductBtn() {
+		JavascriptExecutor js = (JavascriptExecutor)driver;
+		js.executeScript("arguments[0].scrollIntoView(true);", showMoreProduct_btn);
+		showMoreProduct_btn.click();
+	}
+	
+	public void selecteProtectiveJourney() throws InterruptedException {
+		JavascriptExecutor js = (JavascriptExecutor)driver;
+		js.executeScript("arguments[0].scrollIntoView(true);", protective_journey);
+		Thread.sleep(5000);
+		protective_journey.click();
+		
+	}
+	
+	public void textcom() throws InterruptedException {
+		String title = actText.getText();
+		System.out.println(title);
+		if(title.equalsIgnoreCase("Protective")) {
+			Thread.sleep(5000);
+			protective_journey.click();
+		}
+		else {
+			System.out.println("wrong xpath");
+		}
+	}
+	
+	public void clickOnEditBtn() {
+		editBtn.click();
+	}
+	
+	public void healthClassDropdown() {
+		healthClassDropdown.click();
+	}
+	
+	public void healthClassSelected() {
+		JavascriptExecutor js = (JavascriptExecutor)driver;
+		js.executeScript("arguments[0].scrollIntoView(true);", standardNonTobacco);
+	//	driver.switchTo().frame(1);
+		standardNonTobacco.click();
+	}
+	
+	public void clickOnApplyBtn() {
+		applyBtn.click();
+	}
+	
+	public void faforProtectiveJourney() throws InterruptedException {
+		fa.sendKeys("0");  //for protective journey
+	}
+	
+	public void applybtnCoreBridgeJourney() {
+		JavascriptExecutor js = (JavascriptExecutor)driver;
+		js.executeScript("arguments[0].scrollIntoView(true);", applybtn);
+		applybtn.click();
+	}
+	
+	public void applyBtnSymetraJourney() {
+		applyButton.click();
+	}
+	
+	public void applyBtnPacificLifeJourney() {
+	//	JavascriptExecutor js = (JavascriptExecutor)driver;
+	//	js.executeScript("arguments[0].scrollIntoView(true);", PacificLifeApplyBtn);
+       String text =pecificLifeText.getText();
+        System.out.println(text);
+		
+	//	PacificLifeApplyBtn.click();
+	}
+	
+	
+
+}
+
+
+
+
+
+
+
