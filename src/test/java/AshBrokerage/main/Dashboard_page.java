@@ -16,47 +16,47 @@ WebDriver driver;
 		this.driver = driver;
 		PageFactory.initElements(driver, this);
 	}
-	//
+
 	@FindBy(xpath="//span[@class='ml-5 text-md text-black font-bold text-secondary']")
 	private WebElement dashboard;
 	
 	@FindBy(xpath="//a[@class='flex items-center py-4 hover:bg-primary-focus bg-primary-focus']//span[text()='Dashboard']")
 	private WebElement DashBoard_btn;
 	
-	@FindBy(xpath="//a[@class='flex items-center py-4 hover:bg-primary-focus']")
+	@FindBy(xpath="//span[normalize-space()='Clients']")
 	private WebElement Clients_btn;
 	
-	@FindBy(xpath="(//a[@class=\"flex items-center py-4 hover:bg-primary-focus\"])[2]")
+	@FindBy(xpath="(//a[@class='flex items-center py-4 hover:bg-primary-focus'])[2]")
 	private WebElement Quotes_btn;
 	
-	@FindBy(xpath="(//a[@class=\"flex items-center py-4 hover:bg-primary-focus\"])[3]")
+	@FindBy(xpath="(//a[@class='flex items-center py-4 hover:bg-primary-focus'])[3]")
 	private WebElement cases_btn;
 	
-	@FindBy(xpath="(//a[@class=\"flex items-center py-4 hover:bg-primary-focus\"])[4]")
+	@FindBy(xpath="(//a[@class='flex items-center py-4 hover:bg-primary-focus'])[4]")
 	private WebElement InForcePolicy_btn;
 	
-	@FindBy(xpath="//span[text()=\"Call Support\"]")
+	@FindBy(xpath="//span[text()='Call Support']")
 	private WebElement call_support_btn;
 	
-	@FindBy(xpath="//span[@class=\"ml-3 text-[0.85rem] leading-5 font-light\"]")
+	@FindBy(xpath="//span[@class='ml-3 text-[0.85rem] leading-5 font-light']")
 	private WebElement support_mobile_number;
 	
-	@FindBy(xpath="//span[text()=\"Email Support\"]")
+	@FindBy(xpath="//span[text()='Email Support']")
 	private WebElement email_support_btn;
 	
-	@FindBy(xpath="//span[@class=\"ml-3 text-[0.85rem] break-all leading-5 font-light\"]")
+	@FindBy(xpath="//span[@class='ml-3 text-[0.85rem] break-all leading-5 font-light']")
 	private WebElement support_email;
 	
-	@FindBy(xpath="//span[text()=\"acme\"]")
+	@FindBy(xpath="//span[text()='acme']")
 	private WebElement organization_name;    //organization name 
 	
-	@FindBy(xpath="input[@name=\"organizationName\"]")
+	@FindBy(xpath="input[@name='organizationName']")
 	private WebElement org_name;    
 	
 	@FindBy(xpath="(//span[@class='a11yText svelte-17l1npl'])[5]")
 	private WebElement Modetypes;   //
 	
-	@FindBy(xpath="//img[@alt=\"Logo\"]")
+	@FindBy(xpath="//img[@alt='Logo']")
 	private WebElement logo;  
 	
 	@FindBy(xpath="//a[@class=\"flex items-center py-4 hover:bg-primary-focus\"]")
@@ -73,42 +73,47 @@ WebDriver driver;
 		String expected_text = "Dashboard";
 		Assert.assertEquals(actual_text, expected_text);
 	}
+	
 	public void Dashboard_btn() {
 		DashBoard_btn.isDisplayed();
 	}
 	
 	public void Client_btn() throws InterruptedException {
-		System.out.println(Clients_btn.isDisplayed());
+	//	System.out.println(Clients_btn.isDisplayed());
 		Clients_btn.click();
 		Thread.sleep(6000);
 		driver.navigate().back();
+		Thread.sleep(6000);
 	}
 	
 	public void Quotes_btn() throws InterruptedException {
-		Quotes_btn.isDisplayed(); 
+	//	Quotes_btn.isDisplayed(); 
 		Quotes_btn.click();
 		Thread.sleep(6000);
 		driver.navigate().back();
+		Thread.sleep(6000);
 	}
 	
 	public void cases_btn() throws InterruptedException {
-		cases_btn.isDisplayed();
+	//	cases_btn.isDisplayed();
 		cases_btn.click();
 		Thread.sleep(6000);
 		driver.navigate().back();
+		Thread.sleep(6000);
 	}
 	 
 	public void inForcePolicy_btn() throws InterruptedException {
-		InForcePolicy_btn.isDisplayed();
+	//	InForcePolicy_btn.isDisplayed();
 		InForcePolicy_btn.click();
 		Thread.sleep(6000);
 		driver.navigate().back();
+		Thread.sleep(6000);
 	}
 	
 	public void callSupport_btn() {
 		call_support_btn.isDisplayed();
 		String actualmobileNumber = support_mobile_number.getText();
-		String expectmobileNumber = "8005893000";
+		String expectmobileNumber = "800 - 589 - 3000";
 		Assert.assertEquals(actualmobileNumber, expectmobileNumber);
 		
 	}

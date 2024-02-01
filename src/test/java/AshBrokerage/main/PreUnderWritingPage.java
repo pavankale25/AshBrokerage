@@ -23,10 +23,10 @@ public class PreUnderWritingPage {
 	@FindBy(xpath="(//div[@class='item  svelte-3e0qet'])[20]")
 	private WebElement height_selection;
 	
-	@FindBy(xpath="(//input[@class=\"svelte-17l1npl\"])[3]")
+	@FindBy(xpath="(//input[@class='svelte-17l1npl'])[3]")
 	private WebElement weight_dropdown;
 	
-	@FindBy(xpath="(//div[@class='item  svelte-3e0qet'])[130]")
+	@FindBy(xpath="//div[contains(text(),'180')]")
 	private WebElement weight_selection;
 	
 	@FindBy(xpath="(//input[@class=\"radio checked:radio-primary radio-sm\"])[1]")
@@ -55,15 +55,15 @@ public class PreUnderWritingPage {
 	
 	public void heightSelection() {
 		height_dropdown.click();
-		JavascriptExecutor js = (JavascriptExecutor)driver;
-		js.executeScript("arguments[0].scrollIntoView(true);", height_selection);
+	//	JavascriptExecutor js = (JavascriptExecutor)driver;
+	//	js.executeScript("arguments[0].scrollIntoView(true);", height_selection);
 		height_selection.click();
 	}
 	
 	public void weightSelection() {
 		weight_dropdown.click();
-		JavascriptExecutor js = (JavascriptExecutor)driver;
-		js.executeScript("arguments[0].scrollIntoView(true);", height_selection);
+	//	JavascriptExecutor js = (JavascriptExecutor)driver;
+	//	js.executeScript("arguments[0].scrollIntoView(true);", weight_dropdown);
 		weight_selection.click();
 	}
 	

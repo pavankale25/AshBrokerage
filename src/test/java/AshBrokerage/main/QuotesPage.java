@@ -34,7 +34,13 @@ public class QuotesPage {
 	@FindBy(xpath="(//input[@class=\"svelte-17l1npl\"])[3]")
 	private WebElement tobaccoBtn;  
 	
-	@FindBy(xpath="//div[@class=\"listItem\"]//div[text()=\"Never\"]")
+	@FindBy(xpath="(//input[@class='svelte-17l1npl'])[5]")
+	private WebElement socializeStatedropdown;
+	
+	@FindBy(xpath="//div[contains(text(),'Alaska')]")
+	private WebElement AlaskaState;
+	
+	@FindBy(xpath="//div[@class=\"listItem\"]//div[text()='Never']")
     private WebElement decisionOnTobaccoConsumption;
 	
 	@FindBy(xpath="(//div[@class=\"col-span-12\"])[2]")
@@ -55,13 +61,17 @@ public class QuotesPage {
 	@FindBy(xpath="//input[@placeholder='Face Amount']")
 	private WebElement faceAmount;
 	
+	
+	
 	@FindBy(xpath="(//input[@class=\"svelte-17l1npl\"])[11]")
+	//@FindBy(xpath="(//input[@class='svelte-17l1npl'])[9]")  //for demo
 	private WebElement termLength;
 	
 	@FindBy(xpath="//div[text()='20-Year Term']")
 	private WebElement years_term;
 	
 	@FindBy(xpath="(//input[@class=\"svelte-17l1npl\"])[13]")
+//	@FindBy(xpath="(//input[@class=\"svelte-17l1npl\"])[11]")
 	private WebElement Riders;
 	
 	@FindBy(xpath="//div[@class=\"listItem\"]//div[text()='No Riders']")
@@ -129,15 +139,15 @@ public class QuotesPage {
    }
 	//mjjasond8 jf 
 	public void stateSelection() {
-		Solicitation_state.click();
+		socializeStatedropdown.click();
 	}
 	
 	public void californiaSelected() {
 		stateSelection.click();
 	}
 	
-	public void arizonaStateSelection() {
-		stateSelection.click();
+	public void alaskaStateSelection() {
+		AlaskaState.click();
 	}
 	public void productType() {
 		productType.click();

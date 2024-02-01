@@ -1,6 +1,7 @@
 package AshBrokerage.main;
 
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -65,6 +66,7 @@ public class ExistingPolicyInformationPage {
 	@FindBy(xpath="//p[@class='mud-typography mud-typography-body1']")
 	private WebElement personalPurpose;
 	
+	
 	@FindBy(xpath="(//input[@class='mud-radio-input'])[8]")
 	private WebElement noReplacing;
 	
@@ -92,6 +94,8 @@ public class ExistingPolicyInformationPage {
 		term.click();
 		policyPurposedrop.click();
 		personalPurpose.click();
+	}
+	public void questionForExistingPolicy() {
 		noReplacing.click();
 		noExistingPolicyradio.click();
 		noNewPolicyradio.click();
@@ -281,9 +285,6 @@ public class ExistingPolicyInformationPage {
     private WebElement DateOfBirth;
     
     
-   // @FindBy(xpath="(//span[@class='mud-typography mud-typography-button'])[2]")
-  //  private WebElement nextBtnOnBIP;
-    
     public void information() {
     	firstname.sendKeys("Test");
     	lastname.sendKeys("Spouse");
@@ -459,8 +460,12 @@ public class ExistingPolicyInformationPage {
     @FindBy(xpath="(//input[@class='mud-input-slot mud-input-root mud-input-root-text'])[15]")
     private WebElement AgentLastName;
     
-    @FindBy(xpath="(//input[@class='mud-input-slot mud-input-root mud-input-root-text'])[16]")
+ //   @FindBy(xpath="(//input[@class='mud-input-slot mud-input-root mud-input-root-text'])[16]")
+    @FindBy(xpath="(//input[@class='mud-input-slot mud-input-root mud-input-root-text'])[3]")
     private WebElement AgentSSN;
+    
+    @FindBy(xpath="(//input[@class='mud-input-slot mud-input-root mud-input-root-text'])[16]")
+    private WebElement AgentSSNumber;
     
     @FindBy(xpath="(//input[@class='mud-input-slot mud-input-root mud-input-root-text mud-input-root-adorned-end'])[2]")
     private WebElement AgentPer;
@@ -480,16 +485,145 @@ public class ExistingPolicyInformationPage {
     	AddAgent.click();
     }
     
-    public void agentDetail() {
+    public void agentDetail() throws InterruptedException {
+    	Actions action = new Actions(driver);
+    	Thread.sleep(3000);
+    	action.scrollToElement(submitBtn);
     	AgentFirstName.sendKeys("fir");
     	AgentLastName.sendKeys("last");
     	AgentSSN.sendKeys("987641234");
+    	AgentSSNumber.sendKeys("345690878");
     	AgentPer.sendKeys("90");
     }
+    
+    @FindBy(xpath="(//input[@class='mud-input-slot mud-input-root mud-input-root-text'])[15]")
+    private WebElement AgentFirstNameCoreBridge;
+    
+    @FindBy(xpath="(//input[@class='mud-input-slot mud-input-root mud-input-root-text'])[16]")
+    private WebElement AgentLastNameCoreBridge;
+    
+    @FindBy(xpath="(//input[@class='mud-input-slot mud-input-root mud-input-root-text'])[17]")
+    private WebElement AgentSSNCoreBridge;
+    
+    @FindBy(xpath="(//input[@class='mud-input-slot mud-input-root mud-input-root-text'])[18]")
+    private WebElement CarrierAppoNum;
+    
+    @FindBy(xpath="(//input[@class='mud-input-slot mud-input-root mud-input-root-text mud-input-root-adorned-end'])[2]")
+    private WebElement AgentPerCoreBridge;
+    
+ public void agentDetailCoreBridge() {
+	 AgentFirstNameCoreBridge.sendKeys("fir");
+	 AgentLastNameCoreBridge.sendKeys("last");
+	 AgentSSNCoreBridge.sendKeys("987641234");
+	 CarrierAppoNum.sendKeys("2345798067");
+	 AgentPerCoreBridge.sendKeys("90");
+    }
+ 
+   @FindBy(xpath="(//input[@class='mud-input-slot mud-input-root mud-input-root-text'])[13]")
+   private WebElement FNAgent;
+   
+   @FindBy(xpath="(//input[@class='mud-input-slot mud-input-root mud-input-root-text'])[14]")
+   private WebElement LNAgent;
+   
+   @FindBy(xpath="(//input[@class='mud-input-slot mud-input-root mud-input-root-text'])[15]")
+   private WebElement SSNAgent;
+   
+   @FindBy(xpath="(//input[@class='mud-input-slot mud-input-root mud-input-root-text mud-input-root-adorned-end'])[2]")
+   private WebElement percentageSplit;
+   
+ public void agentDetailPacificLife() {
+	 FNAgent.sendKeys("ghjk");
+	 LNAgent.sendKeys("lkjh");
+	 SSNAgent.sendKeys("789456123");
+	 percentageSplit.sendKeys("90");
+ }
     
     public void clickOnSubmitBtn() {
     	submitBtn.click();
     }
+    
+    //Agent Information Page for Symetra Journey
+    @FindBy(xpath="(//input[@class='mud-input-slot mud-input-root mud-input-root-text'])[5]")
+    private WebElement AgencyName;
+    
+    @FindBy(xpath="//input[@class='mud-input-slot mud-input-root mud-input-root-text mud-input-root-adorned-end']")
+    private WebElement percentageAgentSplit;
+    
+    @FindBy(xpath="//button[@class='mud-button-root mud-icon-button mud-button mud-button-filled mud-button-filled-primary mud-button-filled-size-medium mud-ripple']")
+    private WebElement AddAgentSplit;
+    
+    @FindBy(xpath="(//input[@class='mud-input-slot mud-input-root mud-input-root-text'])[13]")
+    private WebElement FnameAgent;
+    
+    @FindBy(xpath="(//input[@class='mud-input-slot mud-input-root mud-input-root-text'])[14]")
+    private WebElement LnameAgent;
+    
+    @FindBy(xpath="(//input[@class='mud-input-slot mud-input-root mud-input-root-text'])[15]")
+    private WebElement PhoneNumAgent;
+    
+    @FindBy(xpath="(//input[@class='mud-input-slot mud-input-root mud-input-root-text'])[16]")
+    private WebElement EmailAgent;
+    
+    @FindBy(xpath="(//input[@class='mud-input-slot mud-input-root mud-input-root-text'])[17]")
+    private WebElement Agencyname;
+    
+    @FindBy(xpath="(//input[@class='mud-input-slot mud-input-root mud-input-root-text'])[18]")
+    private WebElement NPN;
+    
+    @FindBy(xpath="(//input[@class='mud-input-slot mud-input-root mud-input-root-text mud-input-root-adorned-end'])[2]")
+    private WebElement perAddAgent;
+    
+    @FindBy(xpath="//button[@class='mud-button-root mud-button mud-button-filled mud-button-filled-primary mud-button-filled-size-medium mud-ripple']")
+    private WebElement nextBtnAgentInfo;
+    
+    public void agencyName() {
+    	AgencyName.sendKeys("licufg");
+    }
+    
+    public void perAgentSplit() {
+    	percentageAgentSplit.sendKeys(Keys.BACK_SPACE);
+    }
+    
+    public void addAgentSplit() {
+    	AddAgentSplit.click();
+    }
+    
+    public void fnameAgent() {
+    	FnameAgent.sendKeys("lkjhg");
+    }
+    
+    public void lnameAgent() {
+    	LnameAgent.sendKeys("poiuy");
+    }
+    
+    public void phoneNumberAgent() {
+    	PhoneNumAgent.sendKeys("9087658798");
+    }
+    
+    public void emailAgent() {
+    	EmailAgent.sendKeys("abc@gmail.com");
+    }
+    
+    public void agentName() {
+    	Agencyname.sendKeys("uyityo");
+    }
+    
+    public void npn() {
+    	NPN.sendKeys("778786788");
+    }
+    
+    public void percentaheAddAgent() {
+    	perAddAgent.sendKeys("90");
+    }
+    
+    public void nextBtnOnAgentInfoPage() {
+    	nextBtnAgentInfo.click();
+    }
+    
+ //   public void 
+    
+    
+    
     
     //submit page
     

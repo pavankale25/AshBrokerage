@@ -13,10 +13,11 @@ public class Clientpage {   //
 		PageFactory.initElements(driver, this);
 	} 
 	//Client page information 
-	@FindBy(xpath="(//button[@class=\"btn btn-sm btn-primary rounded-md shadow-lg action-btn w-[97px]\"])[2]")
+	//@FindBy(xpath="(//button[@class=\"btn btn-sm btn-primary rounded-md shadow-lg action-btn w-[97px]\"])[2]")
+	@FindBy(xpath="//button[@class='btn btn-primary rounded-md shadow-lg btn-next']")
 	private WebElement view_btn;
 	
-	@FindBy(xpath="//button[text()=\"Add Client\"]")
+	@FindBy(xpath="//button[text()='Add Client']")
 	private WebElement add_client_btn; 
 	
 	@FindBy(xpath="//input[@name=\"firstName\"]")
@@ -37,7 +38,8 @@ public class Clientpage {   //
 	@FindBy(xpath="	//button[@class='btn btn-sm btn-primary rounded-md shadow-lg w-[85px] btn-next']")
 	public WebElement save_btn;    //clicked on save button
 	
-	@FindBy(xpath="//button[contains(text(),'Term')]")
+	@FindBy(xpath="//button[contains(text(),'Term')]")  //staging
+	//@FindBy(xpath="//button[text()='Quote & Apply']")
     public WebElement TermQuoteBtn;
 	
 	@FindBy(xpath="//button[@class=\"btn btn-primary rounded-md shadow-lg btn-next lg:w-40\" and text()=\"Term\"]")

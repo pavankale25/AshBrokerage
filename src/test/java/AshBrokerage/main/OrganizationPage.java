@@ -21,7 +21,9 @@ public class OrganizationPage {
 	private WebElement Continue_btn;
 	
 	public void enteroriganzationName() {
-		OrganizationName.sendKeys("acme");}
+		OrganizationName.sendKeys("acme");
+	//	OrganizationName.sendKeys("productlogo");
+		}
 	public void getOrgname() {
 		  title1 = OrganizationName.getText();
 	}

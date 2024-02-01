@@ -166,14 +166,41 @@ public class ProposedInsuredInformationPage {
 	@FindBy(xpath="(//input[@class='mud-input-slot mud-input-root mud-input-root-text'])[5]")
 	private WebElement mobileNumber;
 	
+	@FindBy(xpath="//input[@placeholder='(###) ###-####']")
+	private WebElement mobilenoSpecificLife;
+	
+	@FindBy(xpath="(//input[@class='mud-input-slot mud-input-root mud-input-root-text mud-input-root-adorned-end mud-select-input'])[3]")
+	private WebElement CountryOfBirthDropDown;
+	
+	@FindBy(xpath="//p[contains(text(),'United States')]")
+	private WebElement UnitedState;
+	
+	@FindBy(xpath="(//input[@class='mud-input-slot mud-input-root mud-input-root-text'])[5]")
+	private WebElement EmailSpecificLife;
+	
+	@FindBy(xpath="(//input[@class='mud-input-slot mud-input-root mud-input-root-text'])[6]")
+	private WebElement AddressSpecificLife;
+	
+	@FindBy(xpath="(//input[@class='mud-input-slot mud-input-root mud-input-root-text'])[7]")
+	private WebElement CitySpecificLife;
+	
+	@FindBy(xpath="(//input[@class='mud-input-slot mud-input-root mud-input-root-text'])[8]")
+	private WebElement ZipSpecificLife;
+	
+	@FindBy(xpath="(//input[@class='mud-radio-input'])[2]")
+	private WebElement NoContingentOwner;
+	
 	@FindBy(xpath="(//input[@class='mud-input-slot mud-input-root mud-input-root-text'])[6]")
 	private WebElement emailId;
 	
 	@FindBy(xpath="(//input[@class='mud-input-slot mud-input-root mud-input-root-text'])[7]")
-	private WebElement addse;
+	private WebElement addse;  //corebridge
 	
 	@FindBy(xpath="(//input[@class='mud-input-slot mud-input-root mud-input-root-text'])[8]")
-	private WebElement citysend;
+	private WebElement citysend;  //corebridge
+	
+	@FindBy(xpath="(//input[@class='mud-input-slot mud-input-root mud-input-root-text'])[9]")
+	private WebElement cityForSymetra;   
 	
 	@FindBy(xpath="(//input[@class='mud-input-slot mud-input-root mud-input-root-text mud-input-root-adorned-end mud-select-input'])[3]")
 	private WebElement stateDropDown;
@@ -188,7 +215,14 @@ public class ProposedInsuredInformationPage {
 	private WebElement coloradoState;
 	
 	@FindBy(xpath="(//input[@class='mud-input-slot mud-input-root mud-input-root-text'])[9]")
-	private WebElement zipcode;
+	private WebElement zipcode;  //corebridge
+	
+	@FindBy(xpath="(//input[@class='mud-input-slot mud-input-root mud-input-root-text'])[10]")
+	private WebElement zipcodeForSymetra;   
+	
+	public void zipCodeSymetra() {
+		zipcodeForSymetra.sendKeys("45678");
+	}
 	
 	@FindBy(xpath="//input[@class='mud-radio-input']")
 	private WebElement yeslicense;
@@ -249,6 +283,41 @@ public class ProposedInsuredInformationPage {
 		mobileNumber.sendKeys("7891234567");
 	}
 	
+	public void mobileNoSpecificLife() {
+		mobilenoSpecificLife.sendKeys("7896546765");
+		}
+	
+	public void emailSpecifcLife() {
+		EmailSpecificLife.sendKeys("owner@email.com");
+	}
+	
+	public void addressSpecificLife() {
+		AddressSpecificLife.sendKeys("5678 Main Street");
+	}
+	
+	public void citySpecificLife() {
+		CitySpecificLife.sendKeys("Fort Collins");
+	}
+	
+	public void zipSpecificLife() {
+		ZipSpecificLife.sendKeys("80525");
+	}
+	
+	public void birthState() {
+		stateDropDown.click();
+		UnitedState.click();
+	}
+	public void stateSpecificLife() {
+		DLissueddropdown.click();
+		coloradoState.click();
+	}
+	
+	public void noContingentOwner() {
+		NoContingentOwner.click();
+	}
+	
+	
+	
 	public void email() {
 		emailId.sendKeys("owner@email.com");
 	}
@@ -259,6 +328,10 @@ public class ProposedInsuredInformationPage {
 	
 	public void city() {
 		citysend.sendKeys("Fort Collins");
+	}
+	
+	public void citySendSymetra() {
+		cityForSymetra.sendKeys("Fort Collins");
 	}
 	
 	public void stateDropDownProtective() {
@@ -312,13 +385,30 @@ public class ProposedInsuredInformationPage {
 	@FindBy(xpath="//p[contains(text(),\"Idaho\")]")
 	private WebElement idahostate;
 	
-	
 	public void stateofBirthSelection() throws InterruptedException {
 		stateofBirth.click();
 		Actions action = new Actions(driver);
 		action.scrollToElement(idahostate).perform();
 		Thread.sleep(4000);
 		idahostate.click();
+	}
+	
+	@FindBy(xpath="(//input[@class='mud-input-slot mud-input-root mud-input-root-text mud-input-root-adorned-end mud-select-input'])[3]")
+	private WebElement occupationSpecificLife;
+	
+	@FindBy(xpath="//p[contains(text(),'Automotive')]")
+	private WebElement Automative;
+	
+	public void occupationSpecificLifeSelection() {
+		occupationSpecificLife.click();
+		Automative.click();
+	}
+	
+	@FindBy(xpath="(//input[@class='mud-radio-input'])[4]")
+	private WebElement NoUSArmedForce;
+	
+	public void noInUSarmedForced() {
+		NoUSArmedForce.click();
 	}
 	
 	@FindBy(xpath="//input[@class='mud-input-slot mud-input-root mud-input-root-text mud-input-root-adorned-start']")
@@ -337,8 +427,10 @@ public class ProposedInsuredInformationPage {
 	@FindBy(xpath="(//input[@class='mud-radio-input'])[2]")
 	private WebElement noUSCitizen;
 	
-	public void UsCitizen() {
+	public void nUsCitizen() {
 		noUSCitizen.click();
+	}
+	public void citizenCounty() {
 		CitizenCountDropdown.click();
 		afghan.click();
 		visaTypeDropdown.click();
@@ -371,62 +463,5 @@ public class ProposedInsuredInformationPage {
 		nextBtn.click();
 	}
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-/*	public void issuedStateSelection() {
-		issuedStateDrp.click();
-		
-	}
-	
-	@FindBy(xpath="(//input[@class=\"mud-radio-input\"])[2]")
-	private WebElement noRadioBtn;
-	
-	@FindBy(xpath="//button[@class=\"mud-button-root mud-button mud-button-filled mud-button-filled-primary mud-button-filled-size-medium mud-ripple\"]")
-    private WebElement nextbtn;
-	
-	@FindBy(xpath="//*[@id=\"app\"]/div[3]/div/div[1]/div[4]/div[1]/button[2]/span/span[1]")
-	private WebElement nextBtn;
-	
-	@FindBy(xpath="//*[@id=\"app\"]/div[3]/div/div[1]/div[4]/div[1]/button[2]/span/span[1]")
-	private WebElement nextbtnpii;
-	
-	public void radioBtnSelection() {
-		noRadioBtn.click();
-	}
-	
-	public void clickOnNextBtn() {   //
-		nextbtn.click();
-	}
-	
-	public void nextBtn() {  //Start App - Proposed Insured Information page
-		nextBtn.click();
-	}
-	
-	public void clickOnNextbtn() {
-		nextbtnpii.click();
-	}*/
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+
 }

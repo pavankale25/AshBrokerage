@@ -17,7 +17,7 @@ public class PreUnderWritingPage2 {
 	@FindBy(xpath="//div[@class='rounded-md flex items-center bg-[#96d7e1] text-black font-semibold text-lg px-4 py-3']")
 	private WebElement act_text;
 	
-	@FindBy(xpath="(//input[@name=\"drivingConvictionDui\"])[2]")
+	@FindBy(xpath="(//input[@class='radio checked:radio-primary radio-sm' and @name='drivingConvictionDui'])[2]")
 	private WebElement DUIselection;
 	
 	@FindBy(xpath="(//input[@name='drivingConvictionViolations'])[2]")

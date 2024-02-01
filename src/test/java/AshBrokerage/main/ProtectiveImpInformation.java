@@ -1,14 +1,12 @@
 package AshBrokerage.main;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.FindBy;
-
 import java.util.Iterator;
 import java.util.Set;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
 public class ProtectiveImpInformation {
 	public WebDriver driver;
 	public ProtectiveImpInformation(WebDriver driver) {
@@ -24,13 +22,31 @@ public class ProtectiveImpInformation {
 	
 	public void switchWindow() throws InterruptedException {
 		Set<String> handles = driver.getWindowHandles();
-		Iterator it = handles.iterator();
+		Iterator<String> it = handles.iterator();
 		String parent_id = (String) it.next();
 		String child_id = (String) it.next();
 		driver.switchTo().window(child_id);  
+		
+		String parentWindowHandle = driver.getWindowHandle();
+		 Set<String> allWindowHandles = driver.getWindowHandles();
+		 for (String windowHandle : allWindowHandles) {
+	            if (!windowHandle.equals(parentWindowHandle)) {
+	                driver.switchTo().window(windowHandle);
+	                break;
+	            }
+	        }
+		
+		
 }
 	public void noConditionApply() {
 		noconditionapply.click();
+	}
+	
+	@FindBy(xpath="//input[@class='mud-radio-input']")
+	private WebElement Yesconditionapply;
+	
+	public void yesConditionApply() {
+		Yesconditionapply.click();
 	}
 	
 	public void nextBtn() {
@@ -56,7 +72,7 @@ public class ProtectiveImpInformation {
 	@FindBy(xpath="(//input[@class='mud-input-slot mud-input-root mud-input-root-text mud-input-root-adorned-end mud-select-input'])[2]")
 	private WebElement stateDropdown;
 	
-	@FindBy(xpath="//p[contains(text(),'Idaho')]")
+	@FindBy(xpath="//p[contains(text(),'Alaska')]")
 	private WebElement idahoState;
 	
 	@FindBy(xpath="(//input[@class='mud-input-slot mud-input-root mud-input-root-text'])[6]")
@@ -70,6 +86,9 @@ public class ProtectiveImpInformation {
     
     @FindBy(xpath="(//input[@class='mud-input-slot mud-input-root mud-input-root-text'])[9]")
     private WebElement SSNumber;
+    
+    @FindBy(xpath="(//input[@class='mud-input-slot mud-input-root mud-input-root-text'])[10]")
+    private WebElement SSNumberSymetra;
     
     @FindBy(xpath="(//input[@class='mud-input-slot mud-input-root mud-input-root-text mud-input-root-adorned-end mud-select-input'])[4]")
     private WebElement maritalStatusDropdown;
@@ -132,6 +151,10 @@ public class ProtectiveImpInformation {
 		SSNumber.sendKeys("333224444");
 	}
 	
+	public void socialSecurityNumberSymetra() {
+		SSNumberSymetra.sendKeys("333224444");
+	}
+	
 	public void maritalStatus() {
 		maritalStatusDropdown.click();
 		Married.click();
@@ -146,7 +169,7 @@ public class ProtectiveImpInformation {
 		DriversLNumber.sendKeys("AA123456B");
 	}
 	
-	public void yesOwnerOfPolicy() {
+	public void noOwnerOfPolicy() {
 		NoOwnerPolicy.click();
 	}
 	

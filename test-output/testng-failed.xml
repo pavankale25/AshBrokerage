@@ -5,14 +5,11 @@
     <classes>
       <class name="AshBrokerage.test.LoginPage_test">
         <methods>
-          <include name="tearDown"/>
-          <include name="clickOnClientButton"/>
+          <include name="verifyDashBoardPage"/>
           <include name="setup"/>
           <include name="login"/>
-          <include name="pacificLifeJourney"/>
           <include name="reportsetup"/>
           <include name="endReports"/>
-          <include name="journeySelection"/>
         </methods>
       </class> <!-- AshBrokerage.test.LoginPage_test -->
     </classes>

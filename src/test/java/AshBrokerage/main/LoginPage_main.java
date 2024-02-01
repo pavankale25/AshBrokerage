@@ -19,7 +19,7 @@ public class LoginPage_main {
 	@FindBy(xpath="//input[@name='password']")
 	private WebElement password;
 	
-	@FindBy(xpath="(//button[text()=\"Continue\"])[2]")
+	@FindBy(xpath="//button[contains(text(),'Continue')]")
 	private WebElement Continue_btn_login; 
 	
 	@FindBy(xpath="//span[@id=\"error-element-password\"]")
@@ -34,6 +34,7 @@ public class LoginPage_main {
 	
 	public void emailIdPass() {
 		Email_id.sendKeys("user@acme.com");
+	//	Email_id.sendKeys("productlogo@email.com");
 	}
 	
 	public void passSend() {
@@ -45,11 +46,11 @@ public class LoginPage_main {
 	}
 	
 	public void invalidEmailid() {
-		Email_id.sendKeys("user@ac.com");
+		Email_id.sendKeys("user@acme.com");
 	}
 	
 	public void invalidPass() {
-		password.sendKeys("Test124");
+		password.sendKeys("Test1234");
 	}
 	
 	public void errormsg() {

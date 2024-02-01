@@ -31,7 +31,7 @@ public class CorebridgeSpecificInformation {
 	
 	public void switchWindow() {
 		Set<String> handles = driver.getWindowHandles();
-		Iterator it = handles.iterator();
+		Iterator<String> it = handles.iterator();
 		String parent_id = (String) it.next();
 		String child_id = (String) it.next();
 		driver.switchTo().window(child_id);  
@@ -50,8 +50,12 @@ public class CorebridgeSpecificInformation {
 	nextBtn.click();
    }
 
-
-
+  @FindBy(xpath="(//*[name()='svg'][@class='mud-icon-root mud-svg-icon mud-icon-size-medium mud-expand-panel-icon'])[1]")
+ private WebElement devtooldropspecificLife;
+  
+  public void tooldropspecificLife() {
+	  devtooldropspecificLife.click();
+  }
    
 
 

@@ -1,5 +1,5 @@
 package AshBrokerage.main;
-
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
@@ -19,7 +19,7 @@ public class QuoteResultspage {
 	private WebElement showMoreProduct_btn;
 	
 //	@FindBy(xpath="(//button[text()=\"Apply\"])[2]")
-	@FindBy(xpath="(//button[@class=\"btn w-[5rem] btn-primary rounded-md uppercase btn-sm lg:btn-sm\"])[2]")
+	@FindBy(xpath="(//button[contains(text(),'Apply')])[2]")
 	private WebElement protective_journey;
 	
 	@FindBy(xpath="//p[text()='Protective']")
@@ -40,13 +40,13 @@ public class QuoteResultspage {
 	@FindBy(xpath="//input[@class=\"input w-full input-sm pl-3 leading-6 text-answer outline outline-1 outline-primary pl-5 focus:outline-none focus:border-primary\"]")
 	private WebElement fa;
 	
-	@FindBy(xpath="(//button[text()='Apply'])[3]")
+	@FindBy(xpath="(//div/button[@class='btn w-[5rem] btn-primary rounded-md uppercase btn-sm lg:btn-sm'])[2]")
 	private WebElement applybtn;  //for corebridge journey
 	
-	@FindBy(xpath="(//button[contains(text(),'Apply')])[2]")
+	@FindBy(xpath="(//button[@class='btn w-[5rem] btn-primary rounded-md uppercase btn-sm lg:btn-sm'])[3]")
 	private WebElement applyButton;  //symetra journey
 	
-	@FindBy(xpath="(//button[@class='btn w-[5rem] btn-primary rounded-md uppercase btn-sm lg:btn-sm'])[4]")
+	@FindBy(xpath="(//button[contains(text(),'Apply')])[4]")
 	private WebElement PacificLifeApplyBtn;
 	
 	@FindBy(xpath="(//div/div[@class='mr-3 pt-2'])[4]")
@@ -58,11 +58,18 @@ public class QuoteResultspage {
 		showMoreProduct_btn.click();
 	}
 	
+	@FindBy(xpath="//p[contains(text(),'Protective')]")
+	private WebElement protective;
+	
+	@FindBy(xpath="(//button[@class='btn w-[5rem] btn-primary rounded-md uppercase btn-sm lg:btn-sm'])[2]")
+	private WebElement applybtnProtective;
+	
+	
 	public void selecteProtectiveJourney() throws InterruptedException {
 		JavascriptExecutor js = (JavascriptExecutor)driver;
-		js.executeScript("arguments[0].scrollIntoView(true);", protective_journey);
-		Thread.sleep(5000);
-		protective_journey.click();
+		js.executeScript("arguments[0].scrollIntoView(true);", applybtnProtective);
+		Thread.sleep(8000);
+		applybtnProtective.click();
 		
 	}
 	
@@ -96,32 +103,37 @@ public class QuoteResultspage {
 	public void clickOnApplyBtn() {
 		applyBtn.click();
 	}
+
+	//@FindBy(xpath="(//button[@class='btn w-[5rem] btn-primary rounded-md uppercase btn-sm lg:btn-sm'])[4]")
+	@FindBy(xpath="(//button[contains(text(),'Apply')])[3]")
+	private WebElement corebridgeFinacial;
 	
-	public void faforProtectiveJourney() throws InterruptedException {
-		fa.sendKeys("0");  //for protective journey
+	
+	public void applybtnCoreBridgeJourney() throws InterruptedException {
+	//	JavascriptExecutor js = (JavascriptExecutor)driver;
+	//	js.executeScript("arguments[0].scrollIntoView(true);", corebridgeFinacial);
+		Thread.sleep(10000);
+		corebridgeFinacial.click();
+		
 	}
 	
-	public void applybtnCoreBridgeJourney() {
+	@FindBy(xpath="//input[@class='input w-full input-sm pl-3 leading-6 text-answer outline outline-1 outline-primary pl-5 focus:outline-none focus:border-primary']")
+	private WebElement faceamount;
+	
+	public void applyBtnSymetraJourney() throws InterruptedException {
+		faceamount.sendKeys(Keys.BACK_SPACE);
+		Thread.sleep(10000);
 		JavascriptExecutor js = (JavascriptExecutor)driver;
-		js.executeScript("arguments[0].scrollIntoView(true);", applybtn);
-		applybtn.click();
-	}
-	
-	public void applyBtnSymetraJourney() {
+		js.executeScript("arguments[0].scrollIntoView(true);", applyButton);
 		applyButton.click();
 	}
 	
 	public void applyBtnPacificLifeJourney() {
-	//	JavascriptExecutor js = (JavascriptExecutor)driver;
-	//	js.executeScript("arguments[0].scrollIntoView(true);", PacificLifeApplyBtn);
        String text =pecificLifeText.getText();
         System.out.println(text);
-		
-	//	PacificLifeApplyBtn.click();
+		PacificLifeApplyBtn.click();
 	}
 	
-	
-
 }
 
 
