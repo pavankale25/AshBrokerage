@@ -19,6 +19,7 @@ import AshBrokerage.main.ProtectiveImpInformation;
 import AshBrokerage.main.LoginPage_main;
 import AshBrokerage.main.QuoteResultspage;
 import AshBrokerage.main.ExistingPolicyInformationPage;
+import AshBrokerage.main.LgaTerm;
 public class LoginPage_test extends BaseClass {
 	
 	@Test(groups= {"A"},priority=1)
@@ -89,7 +90,7 @@ public class LoginPage_test extends BaseClass {
 			test.log(Status.PASS, "ACME logo is displayed on dashboard page");
 		}
 	
-		@Test(groups= {"A"},priority=2, dependsOnMethods="login")
+//		@Test(groups= {"A"},priority=2, dependsOnMethods="login")
 		public void verifyDashBoardPage() throws InterruptedException {     //dashboard page
 			test = extent.createTest("DashBoard:Verify the following field are present on dashboard page or not");
 			Dashboard_page dash = new Dashboard_page(driver);
@@ -116,9 +117,8 @@ public class LoginPage_test extends BaseClass {
 			dash.mode_dropdown();
 			test.log(Status.PASS, "Verified both Regular and Demo Mode is present");
 	
-					
-	}
-	
+		}
+	//
 		
 		//@Test(priority=4, dependsOnMethods="login",enabled=true)
 		public void verifiedUrl() {   //Verified URL of Dashboard page
@@ -132,7 +132,7 @@ public class LoginPage_test extends BaseClass {
 		}
 		
 		
-//		@Test(priority=2, dependsOnMethods="login")
+		@Test(priority=2, dependsOnMethods="login")
 		public void clickOnClientButton() throws InterruptedException {
 			test = extent.createTest("DashBoard:Verify url of a current page");
 			Dashboard_page dash = new Dashboard_page(driver);
@@ -144,6 +144,82 @@ public class LoginPage_test extends BaseClass {
 			test.log(Status.PASS, "Clicked on client button");
 			Thread.sleep(8000);
 		}
+		
+	//	@Test(dependsOnMethods= {"clickOnClientButton"})
+		public void sendBlankDataOnClientPage() {  //verify error message
+			Clientpage client = new Clientpage(driver);
+			client.clickOnAddClientBtn();
+			client.savebtn();
+			client.firstNameErrorMsg();
+			client.lastNameErrorMsg();
+			client.dateOfBirthErrorMsg();
+			client.genderfieldErrorMsg();
+		}
+	//	@Test(dependsOnMethods= {"clickOnClientButton"})
+		public void sendInvalidDataOnClientPage() {
+			Clientpage client = new Clientpage(driver);
+			client.clickOnAddClientBtn();
+			client.firstname();
+			client.lastname();
+			client.dateOfBirth();
+		}
+		
+		@Test(dependsOnMethods= {"clickOnClientButton"})
+		public void sendBlankDataOnPreUnderwritingPage() throws InterruptedException {
+			test = extent.createTest("Client:Send blank data on pre- underwritong page and verify valid error message");
+			Clientpage client = new Clientpage(driver);
+			Thread.sleep(5000);
+		    client.clickOnAddClientBtn();
+		    test.log(Status.PASS, "Clicked on Add Client Button");
+		    client.firstName();
+		    test.log(Status.PASS, "Passed the first name");
+			client.lastName();
+			test.log(Status.PASS, "Passed the last name");
+			client.DOB();
+			test.log(Status.PASS, "Passed the Date of Birth");
+			client.genderSelection();
+			test.log(Status.PASS, "Selected gender as a Male");
+			client.savebtn();
+			test.log(Status.PASS, "Clicked on save button");
+			Thread.sleep(8000);
+			client.applyBtn();
+			test.log(Status.PASS, "Selected quotes as a term");
+			Thread.sleep(5000);
+			QuotesPage quote = new QuotesPage(driver);
+			quote.fNisEnabled();
+			test.log(Status.PASS, "First name is not ediable on Get Quotes page");
+			quote.lNisEnabled();
+			test.log(Status.PASS, "Last name is not ediable on Get Quotes page");
+			Thread.sleep(5000);
+			quote.dob();
+			test.log(Status.PASS, "Passed Date of Birth");
+			quote.genderSelection();
+			test.log(Status.PASS, "Selected the gender");
+			quote.tobaccoConsume();
+			test.log(Status.PASS, "Clicked on Tobaco or Nicotine button");
+			quote.statusOfTobaccoConsumption();
+		test.log(Status.PASS, "Selected never in dropdown");
+			quote.stateSelection();
+			test.log(Status.PASS, "Clicked on Solicitation State dropdown");
+			quote.alaskaStateSelection();
+			test.log(Status.PASS, "Selected state as a Alaska");
+		//	quote.productType();    //selected as term
+			test.log(Status.PASS, "Selected product type as a term");
+			quote.faceAmount();
+			Thread.sleep(5000);
+			test.log(Status.PASS, "FaceAmount passed");
+			quote.selectedTermLength();
+			test.log(Status.PASS, "Selected 20 Years as a Term length");
+            quote.riders();
+            test.log(Status.PASS, "No Riders selected");
+			quote.clickedOnNextBtn();
+			test.log(Status.PASS,"Clicked on next button");
+			PreUnderWritingPage preunderwriting = new PreUnderWritingPage(driver);
+			Thread.sleep(12000);
+			preunderwriting.blannkDataPass();
+		}
+		
+		
 			
 	//		@Test(dependsOnMethods= {"clickOnClientButton"})
 			public void journeySelection() throws InterruptedException {
@@ -346,8 +422,6 @@ public class LoginPage_test extends BaseClass {
 				Thread.sleep(13000);
 	//status page
 				epi.refreshBtn();
-			
-				
 			
 			}
 			
@@ -578,7 +652,7 @@ public class LoginPage_test extends BaseClass {
 			
 			
 			//9 f ma
-	//		@Test(dependsOnMethods= {"journeySelection"},enabled=false)
+	//		@Test(dependsOnMethods= {"journeySelection"},enabled=true)
 					public void symetraJourney() throws InterruptedException {
 						test = extent.createTest("Create symetra journey");
 						QuoteResultspage quoteresult = new QuoteResultspage(driver);
@@ -635,6 +709,8 @@ public class LoginPage_test extends BaseClass {
 			//Agent Information Page
 						ExistingPolicyInformationPage eppage = new ExistingPolicyInformationPage(driver);
 						Thread.sleep(10000);
+						eppage.npnAgentNum();
+						  Thread.sleep(7000);
 						eppage.agencyName();
 						eppage.perAgentSplit();
 						eppage.addAgentSplit();
@@ -646,8 +722,100 @@ public class LoginPage_test extends BaseClass {
 						eppage.npn();
 						eppage.percentaheAddAgent();
 						eppage.nextBtnOnAgentInfoPage();
+						Thread.sleep(5000);
+						eppage.appointNum();
+						Thread.sleep(3000);
+						eppage.carrierAppoAgentSplit();
+						eppage.nextBtnOnAgentInfoPage();
+			//Proposed Insured Information Page
+						Thread.sleep(15000);
+						piip.birthplaceSelection();
+						piip.stateOfBirth();
+						piip.yesUSCitizen();
+						piip.yesHaveLifeInsurance();
+						piip.howMuchInsuranceHave();
+						piip.yesAgentResponse();
+						piip.yesClientResponse();
+						piip.policySelectionAgent();
+						piip.policySelectionClient();
+						piip.companySelection();
+						piip.policyNum();
+						piip.faceAmount();
+						piip.issueDate();
+						piip.policyType();
+						piip.policyPurpose();
+						piip.noReplacingPolicy();
+						piip.noExchange();
+						piip.salesMaterialUsed();
+						piip.yesTerminatingExistPolicy();
+						piip.noduePolicyContact();
+						piip.nextBtnPIIPage();
+			//Symetra Specific Information Page
+						Thread.sleep(15000);
+						piip.durationKnownToInsured();
+						piip.capacity();
+						piip.sourceToPayPremium();
+						piip.ownersResidentialState();
+						piip.nextBtnOnSymetraSpecificInfoPage();
+			//Beneficiary Information Page
+						Thread.sleep(15000);
+						eppage.relationSelectionForSymetra();
+						eppage.information();
+						eppage.dateOfBirth();
+						eppage.phoneNumber();
+						eppage.email();
+						eppage.address();
+						eppage.city();
+						eppage.stateSelection();
+						eppage.zip();
+						eppage.addPrimaryBeneficiary();
+						eppage.relationDropDown();
+						eppage.trustName();
+						eppage.agentPercentage();
+						eppage.trustDate();
+						eppage.addContingentbeneficiaries();
+						eppage.relationselection();
+						eppage.fName();
+						eppage.lName();
+						eppage.percentageForCont();
+						eppage.ssnCont();
+						eppage.dateOfBirthCont();
+						eppage.mobileNumCont();
+						eppage.emailCont();
+						eppage.addressCont();
+						eppage.cityCont();
+						eppage.stateCont();
+						eppage.zipCont();
+						eppage.btnOnBIpage();
+			//Agent Attestation Page
+						Thread.sleep(10000);
+						eppage.clickOnCheckBox();
+						eppage.submitButton();
+						
 					}
-					
-			
+	//		@Test(dependsOnMethods= {"journeySelection"})		
+			public void lgaJourney() throws InterruptedException {
+				test = extent.createTest("Create symetra journey");
+				QuoteResultspage quoteresult = new QuoteResultspage(driver);
+				Thread.sleep(9000);
+				quoteresult.applyBtnLGAFlashTerm();
+				Thread.sleep(9000);
+				CorebridgeSpecificInformation core = new CorebridgeSpecificInformation(driver);
+				core.switchWindow();
+				Thread.sleep(10000);
+		//Start App - Proposed Insured Information Page
+				CorebridgeSpecificInformation cbsi = new CorebridgeSpecificInformation(driver);
+	//	cbsi.developerTooldropDown();
+				LgaTerm lgterm = new LgaTerm(driver);
+				Thread.sleep(6000);
+				lgterm. developerTDropdown();
+				Thread.sleep(4000);
+				lgterm.refreshData();
+				Thread.sleep(5000);
+				lgterm.nextBtnOnPIpage();
+				
+				
+				
+			}
 			
 }

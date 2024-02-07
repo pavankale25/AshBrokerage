@@ -58,16 +58,17 @@ public class QuoteResultspage {
 		showMoreProduct_btn.click();
 	}
 	
-	@FindBy(xpath="//p[contains(text(),'Protective')]")
-	private WebElement protective;
+	@FindBy(xpath="//p[contains(text(),'Principal')]")
+	private WebElement principal;
 	
 	@FindBy(xpath="(//button[@class='btn w-[5rem] btn-primary rounded-md uppercase btn-sm lg:btn-sm'])[2]")
+	//@FindBy(xpath="//p[contains(text(),'Protective')]")
 	private WebElement applybtnProtective;
 	
 	
 	public void selecteProtectiveJourney() throws InterruptedException {
 		JavascriptExecutor js = (JavascriptExecutor)driver;
-		js.executeScript("arguments[0].scrollIntoView(true);", applybtnProtective);
+		js.executeScript("arguments[0].scrollIntoView(true);", principal);
 		Thread.sleep(8000);
 		applybtnProtective.click();
 		
@@ -108,10 +109,12 @@ public class QuoteResultspage {
 	@FindBy(xpath="(//button[contains(text(),'Apply')])[3]")
 	private WebElement corebridgeFinacial;
 	
+	@FindBy(xpath="//p[contains(text(),'Protective')]")
+	private WebElement Protective;
 	
 	public void applybtnCoreBridgeJourney() throws InterruptedException {
-	//	JavascriptExecutor js = (JavascriptExecutor)driver;
-	//	js.executeScript("arguments[0].scrollIntoView(true);", corebridgeFinacial);
+		JavascriptExecutor js = (JavascriptExecutor)driver;
+		js.executeScript("arguments[0].scrollIntoView(true);", Protective);
 		Thread.sleep(10000);
 		corebridgeFinacial.click();
 		
@@ -120,11 +123,14 @@ public class QuoteResultspage {
 	@FindBy(xpath="//input[@class='input w-full input-sm pl-3 leading-6 text-answer outline outline-1 outline-primary pl-5 focus:outline-none focus:border-primary']")
 	private WebElement faceamount;
 	
+	@FindBy(xpath="//p[contains(text(),'Ameritas')]")
+	private WebElement ameritasscroll;
+	
 	public void applyBtnSymetraJourney() throws InterruptedException {
 		faceamount.sendKeys(Keys.BACK_SPACE);
 		Thread.sleep(10000);
 		JavascriptExecutor js = (JavascriptExecutor)driver;
-		js.executeScript("arguments[0].scrollIntoView(true);", applyButton);
+		js.executeScript("arguments[0].scrollIntoView(true);", ameritasscroll);
 		applyButton.click();
 	}
 	
@@ -134,11 +140,16 @@ public class QuoteResultspage {
 		PacificLifeApplyBtn.click();
 	}
 	
+	@FindBy(xpath="//button[@class='btn w-[5rem] btn-primary rounded-md uppercase btn-sm lg:btn-sm']")
+    private WebElement LGAFlashTerm;
+
+public void applyBtnLGAFlashTerm() throws InterruptedException {
+	faceamount.sendKeys(Keys.BACK_SPACE);
+	Thread.sleep(10000);
+	LGAFlashTerm.click();
 }
 
-
-
-
+}
 
 
 

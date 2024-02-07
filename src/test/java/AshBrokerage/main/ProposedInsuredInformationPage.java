@@ -245,11 +245,11 @@ public class ProposedInsuredInformationPage {
 	}
 	
 	public void fn() {
-		ownerFirstName.sendKeys("Test");
+		ownerFirstName.sendKeys("Tdferty");
 	}
 	
 	public void ln() {
-		ownerLastName.sendKeys("owner");
+		ownerLastName.sendKeys("Ohgty");
 	}
 	
 	public void relationship() {
@@ -462,6 +462,243 @@ public class ProposedInsuredInformationPage {
 	public void nextBtn() {
 		nextBtn.click();
 	}
-	
 
+
+//Proposed Insured Information page for Symetra
+
+   @FindBy(xpath="//input[@class='mud-input-slot mud-input-root mud-input-root-text mud-input-root-adorned-end mud-select-input']")
+   private WebElement BirthPlaceDropdown;
+   
+   @FindBy(xpath="//p[contains(text(),'Afghanistan')]")
+   private WebElement afganistan;
+   
+   @FindBy(xpath="//input[@class='mud-radio-input']")
+   private WebElement YesUSCtizens;
+   
+   @FindBy(xpath="(//input[@class='mud-radio-input'])[3]")
+   private WebElement YesHaveLifeInsurance;
+   
+   @FindBy(xpath="//input[@class='mud-input-slot mud-input-root mud-input-root-text']")
+   private WebElement Insurancehave;
+   
+   @FindBy(xpath="(//input[@class='mud-radio-input'])[5]")
+   private WebElement YesAgentResponse;
+   
+   @FindBy(xpath="(//input[@class='mud-radio-input'])[7]")
+   private WebElement YesClientResponse;
+   
+   @FindBy(xpath="(//input[@class='mud-input-slot mud-input-root mud-input-root-text mud-input-root-adorned-end mud-select-input'])[3]")
+   private WebElement typeOfPolicyAgent;
+   
+   @FindBy(xpath="(//input[@class='mud-input-slot mud-input-root mud-input-root-text mud-input-root-adorned-end mud-select-input'])[4]")
+   private WebElement typeOfPolicyClient;
+   
+   @FindBy(xpath="//p[contains(text(),'Life Insurance')]")
+   private WebElement lifeInsurance;
+   
+  @FindBy(xpath="(//input[@class='mud-input-slot mud-input-root mud-input-root-text mud-input-root-adorned-end mud-select-input'])[5]")
+   private WebElement CompanySelection;
+  
+  @FindBy(xpath="//p[contains(text(),'AAA Life Ins. Co')]")
+  private WebElement companyName;
+  
+  @FindBy(xpath="(//input[@class='mud-input-slot mud-input-root mud-input-root-text'])[2]")
+  private WebElement PolicyNum;
+  
+  @FindBy(xpath="(//input[@class='mud-input-slot mud-input-root mud-input-root-text'])[3]")
+  private WebElement IssueDate;
+  
+  @FindBy(xpath="(//input[@class='mud-input-slot mud-input-root mud-input-root-text mud-input-root-adorned-end mud-select-input'])[6]")
+  private WebElement PolicyTypeSelection;
+  
+  @FindBy(xpath="//p[contains(text(),'Permanent')]")
+  private WebElement permanent;
+  
+  @FindBy(xpath="(//input[@class='mud-input-slot mud-input-root mud-input-root-text mud-input-root-adorned-end mud-select-input'])[7]")
+  private WebElement PolicyPurposeDropdown;
+  
+  @FindBy(xpath="//p[contains(text(),'Personal')]")
+  private WebElement Personal;
+  
+  @FindBy(xpath="//input[@class='mud-input-slot mud-input-root mud-input-root-text mud-input-root-adorned-start']")
+   private WebElement faceAmount;
+  
+  @FindBy(xpath="(//input[@class='mud-radio-input'])[10]")
+  private WebElement noReplacingPolicy;
+  
+  @FindBy(xpath="(//input[@class='mud-radio-input'])[12]")
+  private WebElement noExchange;
+  
+  @FindBy(xpath="(//input[@class='mud-radio-input'])[13]")
+  private WebElement YesSalesMaterialUsed;
+  
+  @FindBy(xpath="(//input[@class='mud-radio-input'])[15]")
+  private WebElement YesTerminatingExistPolicy;
+  
+  @FindBy(xpath="(//input[@class='mud-radio-input'])[17]")
+  private WebElement noDuePolicyContact;
+  
+  @FindBy(xpath="(//input[@class='mud-input-slot mud-input-root mud-input-root-text'])[4]")
+  private WebElement FormNum;
+  
+  @FindBy(xpath="(//input[@class='mud-input-slot mud-input-root mud-input-root-text'])[5]")
+  private WebElement typeOfMaterial;
+   
+   public void birthPlaceSelection() throws InterruptedException {
+	   BirthPlaceDropdown.click();
+	   Thread.sleep(3000);
+	   afganistan.click();
+   }
+   
+   @FindBy(xpath="(//input[@class='mud-input-slot mud-input-root mud-input-root-text mud-input-root-adorned-end mud-select-input'])[2]")
+   private WebElement statedropdown;
+   
+   @FindBy(xpath="//p[contains(text(),'Alabama')]")
+   private WebElement alabama;
+   
+   public void  stateOfBirth() {
+	   statedropdown.click();
+	   alabama.click();
+   }
+   
+   public void yesUSCitizen() {
+	   YesUSCtizens.click();
+   }
+   
+   public void yesHaveLifeInsurance() {
+	   YesHaveLifeInsurance.click();
+   }
+   
+   public void howMuchInsuranceHave() {
+	   Insurancehave.sendKeys("2");
+   }
+   
+   public void yesAgentResponse() {
+	   YesAgentResponse.click();
+   }
+   
+   public void yesClientResponse() {
+	   YesClientResponse.click();
+   }
+   
+   public void policySelectionAgent() throws InterruptedException {
+	   typeOfPolicyAgent.click();
+	   Thread.sleep(3000);
+	   lifeInsurance.click();
+   }
+   
+   public void policySelectionClient() throws InterruptedException {
+	   typeOfPolicyClient.click();
+	   Thread.sleep(3000);
+	   lifeInsurance.click();
+   }
+   
+   public void companySelection() {
+	   CompanySelection.click();
+	   companyName.click();
+   }
+   
+   public void policyNum() {
+	   PolicyNum.sendKeys("987857687");
+   }
+   
+   public void faceAmount() {
+	   faceAmount.sendKeys("100000");
+   }
+   
+   public void issueDate() {
+	   IssueDate.sendKeys("09091980");
+   }
+   
+   public void policyType() {
+	   PolicyTypeSelection.click();
+	   permanent.click();
+   }
+   
+   public void policyPurpose() {
+	   PolicyPurposeDropdown.click();
+	   Personal.click();
+   }
+   
+   public void noReplacingPolicy() {
+	   noReplacingPolicy.click();
+   }
+   
+   public void noExchange() {
+	   noExchange.click();
+   }
+   
+   public void salesMaterialUsed() {
+	   YesSalesMaterialUsed.click();
+	   FormNum.sendKeys("3");
+	   typeOfMaterial.sendKeys("gold");
+   }
+   
+   public void yesTerminatingExistPolicy() {
+	   YesTerminatingExistPolicy.click();
+   }
+   
+   public void noduePolicyContact() {
+	   noDuePolicyContact.click();
+   }
+   
+   @FindBy(xpath="//button[@class='mud-button-root mud-button mud-button-filled mud-button-filled-primary mud-button-filled-size-medium mud-ripple']")
+   private WebElement nextBtnPIInfo;
+   
+   public void nextBtnPIIPage() {
+	   nextBtnPIInfo.click();
+   }
+   
+ //Symetra Specific Information Page
+  @FindBy(xpath="//input[@class='mud-input-slot mud-input-root mud-input-root-text']")
+  private WebElement howLongKnownInsured;
+  
+  @FindBy(xpath="(//input[@class='mud-input-slot mud-input-root mud-input-root-text'])[2]")
+  private WebElement whatCapacity;
+  
+  @FindBy(xpath="//input[@class='mud-input-slot mud-input-root mud-input-root-text mud-input-root-adorned-end mud-select-input']")
+  private WebElement sourceToPayPremiumdropdown;
+  
+  @FindBy(xpath="//p[contains(text(),'Current Income')]")
+  private WebElement currentIncome;
+  
+  @FindBy(xpath="(//input[@class='mud-input-slot mud-input-root mud-input-root-text'])[3]")
+  private WebElement whyfield;
+  
+  @FindBy(xpath="//button[@class='mud-button-root mud-button mud-button-filled mud-button-filled-primary mud-button-filled-size-medium mud-ripple']")
+  private WebElement nextBtnonSymetraSI; 
+  
+  public void durationKnownToInsured() {
+	  howLongKnownInsured.sendKeys("3 years");
+  }
+  
+  public void capacity() {
+	  whatCapacity.sendKeys("gfdfds");
+  }
+  
+  public void sourceToPayPremium() {
+	  sourceToPayPremiumdropdown.click();
+	  currentIncome.click();
+  }
+  
+  public void ownersResidentialState() {
+	  whyfield.sendKeys("pouyggvfg");
+  }
+  
+  public void nextBtnOnSymetraSpecificInfoPage() {
+	  nextBtnonSymetraSI.click();
+  }
+  
+  
+  
+  
 }
+
+
+
+
+
+
+
+
+

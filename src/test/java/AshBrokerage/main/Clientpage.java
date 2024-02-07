@@ -4,6 +4,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
+import org.testng.Assert;
 
 public class Clientpage {   //
 	WebDriver driver; 
@@ -20,7 +21,7 @@ public class Clientpage {   //
 	@FindBy(xpath="//button[text()='Add Client']")
 	private WebElement add_client_btn; 
 	
-	@FindBy(xpath="//input[@name=\"firstName\"]")
+	@FindBy(xpath="//input[@name='firstName']")
 	private WebElement first_name;
 	
 	@FindBy(xpath="//input[@placeholder='Last Name']")
@@ -43,7 +44,19 @@ public class Clientpage {   //
     public WebElement TermQuoteBtn;
 	
 	@FindBy(xpath="//button[@class=\"btn btn-primary rounded-md shadow-lg btn-next lg:w-40\" and text()=\"Term\"]")
-	public WebElement term_quote;                
+	public WebElement term_quote; 
+	
+	@FindBy(xpath="//p[@class='text-xs text-error']")
+	private WebElement fnerrormsg;
+	
+	@FindBy(xpath="(//p[@class='text-xs text-error'])[2]")
+	private WebElement lnameerrormsg;
+	
+	@FindBy(xpath="(//p[@class='text-xs text-error'])[3]")
+	private WebElement DOBerrormsg;
+	
+	@FindBy(xpath="(//p[@class='text-xs text-error'])[4]")
+	private WebElement Gendererrormsg;
 
 	public void clickOnAddClientBtn() {
 		add_client_btn.click();
@@ -74,6 +87,59 @@ public class Clientpage {   //
 		TermQuoteBtn.click();
 		
 	}
+	
+	public void fName() {
+		first_name.sendKeys("6677@#");
+	}
+	
+	public void firstNameErrorMsg() {
+		String error_msgforFNfield=fnerrormsg.getText();
+		String expectederrorMsgFNfield="This field is required.";
+		Assert.assertEquals(expectederrorMsgFNfield,error_msgforFNfield);
+	}
+	
+	public void lastNameErrorMsg() {
+		String errorMsgLNfield=lnameerrormsg.getText();
+		String expectederrorMsgLNfield = "This field is required.";
+		Assert.assertEquals(errorMsgLNfield, expectederrorMsgLNfield);
+	}
+	
+	public void dateOfBirthErrorMsg() {
+		String errorMsgofDOBfield = DOBerrormsg.getText();
+	    String expectederrorMsgDOBfield = "This field is required.";
+	    Assert.assertEquals(errorMsgofDOBfield, expectederrorMsgDOBfield);
+	}
+	
+	public void genderfieldErrorMsg() {
+		String errorMsgofGenderfield = Gendererrormsg.getText();
+		String expectederrorMsgGenderfield = "This field is required.";
+		Assert.assertEquals(errorMsgofGenderfield, expectederrorMsgGenderfield);
+	}
+	
+	public void firstname() {
+		first_name.sendKeys("76565#@");
+		String error_msgforFNfield=fnerrormsg.getText();
+		String expectedFNfield = "Please provide valid name";
+		Assert.assertEquals(error_msgforFNfield, expectedFNfield);
+	}
+	
+	public void lastname() {
+		Last_name.sendKeys("5655#$");
+		String error_msgforLNfield=lnameerrormsg.getText();
+		String expectedFNfield = "Please provide valid name";
+		Assert.assertEquals(error_msgforLNfield, expectedFNfield);
+	}
+	
+	public void dateOfBirth() {
+		Date_of_Birth.sendKeys("7843");
+		String validErrormsg = DOBerrormsg.getText();
+		String expectedFNfield = "Please provide valid name";
+		Assert.assertEquals(validErrormsg, expectedFNfield);
+	}
+	
+	
+	
+	
 }
 
 

@@ -1,102 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="6" total="8" passed="1" failed="1" skipped="0">
+<testng-results ignored="6" total="9" passed="3" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2024-02-01T17:56:36 IST" name="Default suite" finished-at="2024-02-01T17:57:02 IST" duration-ms="25684">
+  <suite started-at="2024-02-07T10:14:51 IST" name="Default suite" finished-at="2024-02-07T10:16:31 IST" duration-ms="100232">
     <groups>
       <group name="A">
-        <method signature="LoginPage_test.login()[pri:1, instance:AshBrokerage.test.LoginPage_test@3a5ecce3]" name="login" class="AshBrokerage.test.LoginPage_test"/>
-        <method signature="LoginPage_test.verifyDashBoardPage()[pri:2, instance:AshBrokerage.test.LoginPage_test@3a5ecce3]" name="verifyDashBoardPage" class="AshBrokerage.test.LoginPage_test"/>
+        <method signature="LoginPage_test.login()[pri:1, instance:AshBrokerage.test.LoginPage_test@2dcd168a]" name="login" class="AshBrokerage.test.LoginPage_test"/>
       </group> <!-- A -->
     </groups>
-    <test started-at="2024-02-01T17:56:36 IST" name="Default test" finished-at="2024-02-01T17:57:02 IST" duration-ms="25684">
+    <test started-at="2024-02-07T10:14:51 IST" name="Default test" finished-at="2024-02-07T10:16:31 IST" duration-ms="100232">
       <class name="AshBrokerage.test.LoginPage_test">
-        <test-method is-config="true" signature="reportsetup()[pri:0, instance:AshBrokerage.test.LoginPage_test@3a5ecce3]" started-at="2024-02-01T17:56:36 IST" name="reportsetup" finished-at="2024-02-01T17:56:36 IST" duration-ms="209" status="PASS">
+        <test-method is-config="true" signature="reportsetup()[pri:0, instance:AshBrokerage.test.LoginPage_test@2dcd168a]" started-at="2024-02-07T10:14:50 IST" name="reportsetup" finished-at="2024-02-07T10:14:51 IST" duration-ms="208" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- reportsetup -->
-        <test-method is-config="true" signature="setup()[pri:0, instance:AshBrokerage.test.LoginPage_test@3a5ecce3]" started-at="2024-02-01T17:56:36 IST" name="setup" finished-at="2024-02-01T17:56:43 IST" duration-ms="6791" status="PASS">
+        <test-method is-config="true" signature="setup()[pri:0, instance:AshBrokerage.test.LoginPage_test@2dcd168a]" started-at="2024-02-07T10:14:51 IST" name="setup" finished-at="2024-02-07T10:15:00 IST" duration-ms="9139" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup -->
-        <test-method signature="login()[pri:1, instance:AshBrokerage.test.LoginPage_test@3a5ecce3]" started-at="2024-02-01T17:56:43 IST" name="login" finished-at="2024-02-01T17:57:00 IST" duration-ms="17647" status="PASS">
+        <test-method signature="login()[pri:1, instance:AshBrokerage.test.LoginPage_test@2dcd168a]" started-at="2024-02-07T10:15:00 IST" name="login" finished-at="2024-02-07T10:15:18 IST" duration-ms="18494" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- login -->
-        <test-method signature="verifyDashBoardPage()[pri:2, instance:AshBrokerage.test.LoginPage_test@3a5ecce3]" started-at="2024-02-01T17:57:00 IST" name="verifyDashBoardPage" finished-at="2024-02-01T17:57:02 IST" depends-on-methods="AshBrokerage.test.LoginPage_test.login" duration-ms="1195" status="FAIL">
-          <exception class="org.openqa.selenium.ElementClickInterceptedException">
-            <message>
-              <![CDATA[element click intercepted: Element <span class="ml-3 sidebar-tab">...</span> is not clickable at point (93, 135). Other element would receive the click: <a href="/dashboard" class="flex items-center py-4 hover:bg-primary-focus bg-primary-focus">...</a>
-  (Session info: chrome=120.0.6099.225)
-Build info: version: '4.9.1', revision: 'eb2032df7f'
-System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '20.0.1'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [99b209fc97ddd93fed8dd56afac925b4, clickElement {id=64726EC43997C1F84EF2E35AB6DFE563_element_393}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 120.0.6099.225, chrome: {chromedriverVersion: 120.0.6099.109 (3419140ab66..., userDataDir: C:\Users\IPS-52\AppData\Loc...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:62660}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:62660/devtoo..., se:cdpVersion: 120.0.6099.225, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Element: [[ChromeDriver: chrome on windows (99b209fc97ddd93fed8dd56afac925b4)] -> xpath: //span[normalize-space()='Clients']]
-Session ID: 99b209fc97ddd93fed8dd56afac925b4]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[org.openqa.selenium.ElementClickInterceptedException: element click intercepted: Element <span class="ml-3 sidebar-tab">...</span> is not clickable at point (93, 135). Other element would receive the click: <a href="/dashboard" class="flex items-center py-4 hover:bg-primary-focus bg-primary-focus">...</a>
-  (Session info: chrome=120.0.6099.225)
-Build info: version: '4.9.1', revision: 'eb2032df7f'
-System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '20.0.1'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [99b209fc97ddd93fed8dd56afac925b4, clickElement {id=64726EC43997C1F84EF2E35AB6DFE563_element_393}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 120.0.6099.225, chrome: {chromedriverVersion: 120.0.6099.109 (3419140ab66..., userDataDir: C:\Users\IPS-52\AppData\Loc...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:62660}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:62660/devtoo..., se:cdpVersion: 120.0.6099.225, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Element: [[ChromeDriver: chrome on windows (99b209fc97ddd93fed8dd56afac925b4)] -> xpath: //span[normalize-space()='Clients']]
-Session ID: 99b209fc97ddd93fed8dd56afac925b4
-at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:67)
-at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
-at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:484)
-at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:200)
-at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:133)
-at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:53)
-at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:193)
-at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:183)
-at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:158)
-at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:543)
-at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:257)
-at org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:78)
-at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
-at java.base/java.lang.reflect.Method.invoke(Method.java:578)
-at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:52)
-at jdk.proxy2/jdk.proxy2.$Proxy21.click(Unknown Source)
-at AshBrokerage.main.Dashboard_page.Client_btn(Dashboard_page.java:83)
-at AshBrokerage.test.LoginPage_test.verifyDashBoardPage(LoginPage_test.java:100)
-at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
-at java.base/java.lang.reflect.Method.invoke(Method.java:578)
-at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
-at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:598)
-at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)
-at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
-at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:824)
-at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)
-at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
-at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
-at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
-at org.testng.TestRunner.privateRun(TestRunner.java:794)
-at org.testng.TestRunner.run(TestRunner.java:596)
-at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
-at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
-at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
-at org.testng.SuiteRunner.run(SuiteRunner.java:276)
-at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
-at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
-at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
-at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
-at org.testng.TestNG.runSuites(TestNG.java:1063)
-at org.testng.TestNG.run(TestNG.java:1031)
-at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-]]>
-            </full-stacktrace>
-          </exception> <!-- org.openqa.selenium.ElementClickInterceptedException -->
+        <test-method signature="clickOnClientButton()[pri:2, instance:AshBrokerage.test.LoginPage_test@2dcd168a]" started-at="2024-02-07T10:15:18 IST" name="clickOnClientButton" finished-at="2024-02-07T10:15:42 IST" depends-on-methods="AshBrokerage.test.LoginPage_test.login" duration-ms="23387" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- verifyDashBoardPage -->
-        <test-method is-config="true" signature="endReports()[pri:0, instance:AshBrokerage.test.LoginPage_test@3a5ecce3]" started-at="2024-02-01T17:57:02 IST" name="endReports" finished-at="2024-02-01T17:57:02 IST" duration-ms="368" status="PASS">
+        </test-method> <!-- clickOnClientButton -->
+        <test-method signature="sendBlankDataOnPreUnderwritingPage()[pri:0, instance:AshBrokerage.test.LoginPage_test@2dcd168a]" started-at="2024-02-07T10:15:42 IST" name="sendBlankDataOnPreUnderwritingPage" finished-at="2024-02-07T10:16:31 IST" depends-on-methods="AshBrokerage.test.LoginPage_test.clickOnClientButton" duration-ms="49096" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- sendBlankDataOnPreUnderwritingPage -->
+        <test-method is-config="true" signature="endReports()[pri:0, instance:AshBrokerage.test.LoginPage_test@2dcd168a]" started-at="2024-02-07T10:16:31 IST" name="endReports" finished-at="2024-02-07T10:16:31 IST" duration-ms="507" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- endReports -->

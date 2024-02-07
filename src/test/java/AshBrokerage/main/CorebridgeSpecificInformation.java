@@ -40,7 +40,7 @@ public class CorebridgeSpecificInformation {
 
    public void developerTooldropDown() {
 	   developerToolDropdown.click();
-	   checkBox.click();
+	   checkBox.click(); 
    }
 	
    public void criteriaMet() {

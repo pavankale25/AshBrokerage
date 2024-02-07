@@ -443,6 +443,210 @@ public class ExistingPolicyInformationPage {
     	nextBtnOnBIP.click();
     }
     
+ //Beneficiary Information page for Symetra
+    @FindBy(xpath="//input[@class='mud-input-slot mud-input-root mud-input-root-text mud-input-root-adorned-end mud-select-input']")
+    private WebElement relationDropdown;
+    
+    @FindBy(xpath="(//p[@class='mud-typography mud-typography-body1'])[2]")
+    private WebElement parent;
+    
+    @FindBy(xpath="(//input[@class='mud-input-slot mud-input-root mud-input-root-text'])[5]")
+    private WebElement PhoneNumber;
+    
+    @FindBy(xpath="(//input[@class='mud-input-slot mud-input-root mud-input-root-text'])[6]")
+    private WebElement Email;
+    
+    @FindBy(xpath="(//input[@class='mud-input-slot mud-input-root mud-input-root-text'])[7]")
+    private WebElement Address;
+    
+    @FindBy(xpath="(//input[@class='mud-input-slot mud-input-root mud-input-root-text'])[8]")
+    private WebElement City;
+    
+    @FindBy(xpath="(//input[@class='mud-input-slot mud-input-root mud-input-root-text mud-input-root-adorned-end mud-select-input'])[2]")
+    private WebElement stateDropdown;
+    
+    @FindBy(xpath="//p[@class='mud-typography mud-typography-body1']")
+    private WebElement alabamaState;
+    
+    @FindBy(xpath="(//input[@class='mud-input-slot mud-input-root mud-input-root-text'])[9]")
+    private WebElement Zip;
+    
+    public void relationSelectionForSymetra() {
+    	relationDropdown.click();
+    	parent.click();
+    }
+    
+    public void phoneNumber() {
+    	PhoneNumber.sendKeys("9090897867");
+    }
+    
+    public void email() {
+    	Email.sendKeys("abc@gmail.com");
+    }
+
+    public void address() {
+    	Address.sendKeys("tyrtytrhr");
+    }
+    
+    public void city() {
+    	City.sendKeys("samdd");
+    }
+    
+    public void stateSelection() {
+    	stateDropdown.click();
+    	alabamaState.click();;
+    }
+    
+    public void zip() {
+    	Zip.sendKeys("65654");
+    }
+    
+    //Add Primary Beneficiaries for symetra
+    @FindBy(xpath="//button[@class='mud-button-root mud-icon-button mud-button mud-button-filled mud-button-filled-primary mud-button-filled-size-medium mud-ripple']")
+    private WebElement addPrimaryBene;
+    
+    @FindBy(xpath="(//input[@class='mud-input-slot mud-input-root mud-input-root-text mud-input-root-adorned-end mud-select-input'])[3]")
+    private WebElement relationDropdownforAddPrimary;
+    
+    @FindBy(xpath="(//p[@class='mud-typography mud-typography-body1'])[5]")
+    private WebElement trust;
+    
+    @FindBy(xpath="(//input[@class='mud-input-slot mud-input-root mud-input-root-text'])[10]")
+    private WebElement TrustName;
+    
+    @FindBy(xpath="(//input[@class='mud-input-slot mud-input-root mud-input-root-text mud-input-root-adorned-end'])[2]")
+    private WebElement peragent;
+    
+    @FindBy(xpath="(//input[@class='mud-input-slot mud-input-root mud-input-root-text'])[12]")
+    private WebElement trustDate;
+    
+    public void addPrimaryBeneficiary() {
+    	addPrimaryBene.click();
+    }
+    
+    public void relationDropDown() {
+    	relationDropdownforAddPrimary.click();
+    	trust.click();
+    }
+    public void trustName() {
+    	TrustName.sendKeys("one");;
+    }
+    
+    public void agentPercentage() {
+    	peragent.sendKeys("50");
+    }
+    
+    public void trustDate() {
+    	trustDate.sendKeys("12031990");
+    }
+    
+    //Contingent Bene
+    @FindBy(xpath="(//button[@class='mud-button-root mud-icon-button mud-button mud-button-filled mud-button-filled-primary mud-button-filled-size-medium mud-ripple'])[2]")
+    private WebElement addContingentBene;
+    
+    @FindBy(xpath="(//input[@class='mud-input-slot mud-input-root mud-input-root-text mud-input-root-adorned-end mud-select-input'])[4]")
+    private WebElement relationDrp;
+    
+    @FindBy(xpath="//p[contains(text(),'Parent')]")
+    private WebElement Parent;
+    
+    @FindBy(xpath="(//input[@class='mud-input-slot mud-input-root mud-input-root-text'])[13]")
+    private WebElement FirstN;
+    
+    @FindBy(xpath="(//input[@class='mud-input-slot mud-input-root mud-input-root-text'])[14]")
+    private WebElement LastN;
+    
+    @FindBy(xpath="(//input[@class='mud-input-slot mud-input-root mud-input-root-text mud-input-root-adorned-end'])[3]")
+    private WebElement PercentageContigent;
+    
+    @FindBy(xpath="(//input[@class='mud-input-slot mud-input-root mud-input-root-text'])[15]")
+    private WebElement SSNforConti;
+    
+    @FindBy(xpath="(//input[@class='mud-input-slot mud-input-root mud-input-root-text'])[16]")
+    private WebElement DofBirth;
+    
+    @FindBy(xpath="(//input[@class='mud-input-slot mud-input-root mud-input-root-text'])[17]")
+    private WebElement MobileNum;
+    
+    @FindBy(xpath="(//input[@class='mud-input-slot mud-input-root mud-input-root-text'])[18]")
+    private WebElement Emailpass;
+    
+    @FindBy(xpath="(//input[@class='mud-input-slot mud-input-root mud-input-root-text'])[19]")
+    private WebElement AddressforCont;
+    
+    @FindBy(xpath="(//input[@class='mud-input-slot mud-input-root mud-input-root-text'])[20]")
+    private WebElement CityforConti;
+    
+    @FindBy(xpath="(//input[@class='mud-input-slot mud-input-root mud-input-root-text mud-input-root-adorned-end mud-select-input'])[5]")
+    private WebElement stateDrpForCont;
+    
+    @FindBy(xpath="//p[contains(text(),'Alabama')]")
+    private WebElement AlabamaState;
+    
+    @FindBy(xpath="(//input[@class='mud-input-slot mud-input-root mud-input-root-text'])[21]")
+    private WebElement ZipforConti;
+    
+    @FindBy(xpath="//button[@class='mud-button-root mud-button mud-button-filled mud-button-filled-primary mud-button-filled-size-medium mud-ripple']")
+    private WebElement btnBIPage;
+    
+    public void addContingentbeneficiaries() {
+    	addContingentBene.click();
+    }
+    
+    public void relationselection() {
+    	relationDrp.click();
+    	Parent.click();
+    }
+    
+    public void fName() {
+    	FirstN.sendKeys("yyturtyu");
+    }
+    
+    public void lName() {
+    	LastN.sendKeys("lkkjh");
+    }
+    
+    public void percentageForCont() {
+    	PercentageContigent.sendKeys("100");
+    }
+    
+    public void ssnCont() {
+    	SSNforConti.sendKeys("786789098");
+    }
+    
+    public void dateOfBirthCont() {
+    	DofBirth.sendKeys("01021980");
+    }
+    
+    public void mobileNumCont() {
+    	MobileNum.sendKeys("9090121343");
+    }
+    
+    public void emailCont() {
+    	Emailpass.sendKeys("xyz@gmail.com");
+    }
+    
+    public void addressCont() {
+    	AddressforCont.sendKeys("mnbv");
+    }
+    
+    public void cityCont() {
+    	CityforConti.sendKeys("vittrt");
+    }
+    
+    public void stateCont() {
+    	stateDrpForCont.click();
+    	AlabamaState.click();
+    }
+    
+    public void zipCont() {
+    	ZipforConti.sendKeys("76890");
+    }
+    
+    public void btnOnBIpage() {
+    	btnBIPage.click();
+    }
+    
     
   //Agent Information page 
     @FindBy(xpath="//input[@class='mud-radio-input']")
@@ -543,6 +747,7 @@ public class ExistingPolicyInformationPage {
     }
     
     //Agent Information Page for Symetra Journey
+     
     @FindBy(xpath="(//input[@class='mud-input-slot mud-input-root mud-input-root-text'])[5]")
     private WebElement AgencyName;
     
@@ -569,6 +774,9 @@ public class ExistingPolicyInformationPage {
     
     @FindBy(xpath="(//input[@class='mud-input-slot mud-input-root mud-input-root-text'])[18]")
     private WebElement NPN;
+    
+    @FindBy(xpath="(//input[@class='mud-input-slot mud-input-root mud-input-root-text'])[6]")
+    private WebElement NPNAgentInfo;
     
     @FindBy(xpath="(//input[@class='mud-input-slot mud-input-root mud-input-root-text mud-input-root-adorned-end'])[2]")
     private WebElement perAddAgent;
@@ -608,8 +816,37 @@ public class ExistingPolicyInformationPage {
     	Agencyname.sendKeys("uyityo");
     }
     
-    public void npn() {
-    	NPN.sendKeys("778786788");
+    public void npn() throws InterruptedException {
+    	NPN.clear();
+    	Thread.sleep(4000);
+    	NPN.sendKeys("46790");
+    }
+    
+    public void npnAgentNum() throws InterruptedException {
+    	for(int i=1;i<=9;i++) {
+    		NPNAgentInfo.sendKeys(Keys.BACK_SPACE);
+    	}
+    	Thread.sleep(4000);
+    	NPNAgentInfo.sendKeys("46790");
+    }
+    
+    @FindBy(xpath="//input[@class='mud-input-slot mud-input-root mud-input-root-text mud-input-root-adorned-end mud-select-input']")
+    private WebElement carrierAppointmentNum;
+    
+    @FindBy(xpath="(//p[@class='mud-typography mud-typography-body1'])[2]")
+    private WebElement AppointmentNum;
+    
+    public void appointNum() {
+    	carrierAppointmentNum.click();
+    	AppointmentNum.click();
+    }
+    
+    @FindBy(xpath="(//input[@class='mud-input-slot mud-input-root mud-input-root-text mud-input-root-adorned-end mud-select-input'])[2]")
+    private WebElement carrierAppointmentNumAgentSplit;
+    
+    public void carrierAppoAgentSplit() {
+    	carrierAppointmentNumAgentSplit.click();
+    	AppointmentNum.click();
     }
     
     public void percentaheAddAgent() {
@@ -620,7 +857,63 @@ public class ExistingPolicyInformationPage {
     	nextBtnAgentInfo.click();
     }
     
- //   public void 
+    @FindBy(xpath="//input[@class='mud-input-slot mud-input-root mud-input-root-text']")
+    private WebElement AgentFirstN;
+    
+    @FindBy(xpath="(//input[@class='mud-input-slot mud-input-root mud-input-root-text'])[2]")
+    private WebElement AgentLastN;
+    
+    public void agentFirstN() {
+    	AgentFirstN.sendKeys("lkjghfgh");
+    }
+    
+    public void agentLastN() {
+    	AgentLastN.sendKeys("asdfgh");
+    }
+    
+    //Agent Attestation Page for symetra
+  @FindBy(xpath="//input[@class='mud-checkbox-input']")
+  private 	WebElement chckBox1;
+  
+  @FindBy(xpath="(//input[@class='mud-checkbox-input'])[2]")
+  private 	WebElement chckBox2;
+  
+  @FindBy(xpath="(//input[@class='mud-checkbox-input'])[3]")
+  private 	WebElement chckBox3;
+  
+  @FindBy(xpath="(//input[@class='mud-checkbox-input'])[4]")
+  private 	WebElement chckBox4;
+  
+  @FindBy(xpath="(//input[@class='mud-checkbox-input'])[5]")
+  private 	WebElement chckBox5;
+  
+  @FindBy(xpath="(//input[@class='mud-checkbox-input'])[6]")
+  private 	WebElement chckBox6;
+  
+  @FindBy(xpath="(//input[@class='mud-checkbox-input'])[7]")
+  private 	WebElement chckBox7;
+  
+  @FindBy(xpath="(//input[@class='mud-checkbox-input'])[8]")
+  private 	WebElement chckBox8;
+  
+  @FindBy(xpath="//button[@class='mud-button-root mud-button mud-button-filled mud-button-filled-primary mud-button-filled-size-medium mud-ripple']")
+  private WebElement SubmitButton;
+  
+public void clickOnCheckBox() {
+	chckBox1.click();
+	chckBox2.click();
+	chckBox3.click();
+	chckBox4.click();
+	chckBox5.click();
+	chckBox6.click();
+	chckBox7.click();
+	chckBox8.click();
+}
+
+public void submitButton() {
+	SubmitButton.click();
+}
+
     
     
     

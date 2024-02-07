@@ -5,11 +5,12 @@
     <classes>
       <class name="AshBrokerage.test.LoginPage_test">
         <methods>
-          <include name="verifyDashBoardPage"/>
+          <include name="clickOnClientButton"/>
           <include name="setup"/>
           <include name="login"/>
           <include name="reportsetup"/>
           <include name="endReports"/>
+          <include name="sendBlankDataOnPreUnderwritingPage"/>
         </methods>
       </class> <!-- AshBrokerage.test.LoginPage_test -->
     </classes>

@@ -44,8 +44,23 @@ public class PreUnderWritingPage {
 	@FindBy(xpath="//div[@class='custom-checkbox-bg']")
 	private WebElement checkBox_click;
 	
-	@FindBy(xpath="//button[@class=\"rounded-md shadow-lg btn uppercase btn-sm btn-next btn-primary\"]")
+	@FindBy(xpath="//button[@class='rounded-md shadow-lg btn uppercase btn-sm btn-next btn-primary']")
 	private WebElement NextBtn;
+	
+	@FindBy(xpath="//p[@class='text-xs text-error']")
+	private WebElement ValidErrorMsgHeightField;
+	
+	@FindBy(xpath="(//p[@class='text-xs text-error'])[2]")
+	private WebElement ValidErrorMsgWeightField;
+	
+	@FindBy(xpath="(//p[@class='text-xs text-error'])[3]")
+	private WebElement validErrorMsgUScitizenField;
+	
+	@FindBy(xpath="(//p[@class='text-xs text-error'])[4]")
+	private WebElement ValidErrorMsgMarijuanaField;
+	
+	@FindBy(xpath="//div[@class='text-xs mt-1 text-red-500']")
+	private WebElement validErrorMsgHealthConField;
 	
 	public void headlineComparison() {
 		String actualText = text.getText();
@@ -88,5 +103,27 @@ public class PreUnderWritingPage {
 		NextBtn.click();
 		
 	}
+	
+	public void blannkDataPass() throws InterruptedException {
+		JavascriptExecutor js = (JavascriptExecutor)driver;
+		js.executeScript("arguments[0].scrollIntoView(true);", NextBtn);
+		Thread.sleep(5000);
+		NextBtn.click();
+		String expectedValidErrorMsg = "This field is required.";
+		String actualValidErrorMsgofHeight=ValidErrorMsgHeightField.getText();
+		Assert.assertEquals(expectedValidErrorMsg, actualValidErrorMsgofHeight);
+		String actualValidErrorMsgofWeight=ValidErrorMsgWeightField.getText();
+		Assert.assertEquals(expectedValidErrorMsg, actualValidErrorMsgofWeight);
+		String actualValidErrorMsgOfUsCitizenField = validErrorMsgUScitizenField.getText();
+		Assert.assertEquals(actualValidErrorMsgOfUsCitizenField, expectedValidErrorMsg);
+		String actualValidErrorMsgofMarijuana=ValidErrorMsgMarijuanaField.getText();
+		Assert.assertEquals(expectedValidErrorMsg, actualValidErrorMsgofMarijuana);
+		String validErrorMsgOfHealthConditionField = validErrorMsgHealthConField.getText();
+		Assert.assertEquals(expectedValidErrorMsg, validErrorMsgOfHealthConditionField);
+	}
+	
+	
+	
+
 
 }
