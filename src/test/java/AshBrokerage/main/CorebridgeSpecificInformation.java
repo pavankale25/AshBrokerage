@@ -29,6 +29,12 @@ public class CorebridgeSpecificInformation {
 	@FindBy(xpath="//span[@class='mud-typography mud-typography-button']")
 	private WebElement nextBtn; 
 	
+	@FindBy(xpath="(//input[@class='mud-radio-input'])[2]")
+	private WebElement noDropdown;
+	
+	@FindBy(xpath="//div[@class='mud-alert-message']")
+	private WebElement alertMsg;
+	
 	public void switchWindow() {
 		Set<String> handles = driver.getWindowHandles();
 		Iterator<String> it = handles.iterator();
@@ -55,6 +61,17 @@ public class CorebridgeSpecificInformation {
   
   public void tooldropspecificLife() {
 	  devtooldropspecificLife.click();
+  }
+  
+  public void noCriteriaMet() {
+	  noDropdown.click();
+  }
+  
+  public void alertMessage() {
+	  String ExpectedAlertMsg = alertMsg.getText();
+	  String ActualAlertMsg = "Unfortunately the criteria is not met to continue with this case.";
+	  Assert.assertEquals(ExpectedAlertMsg, ActualAlertMsg);
+	 
   }
    
 

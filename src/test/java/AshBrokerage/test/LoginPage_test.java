@@ -155,6 +155,7 @@ public class LoginPage_test extends BaseClass {
 			client.dateOfBirthErrorMsg();
 			client.genderfieldErrorMsg();
 		}
+		
 	//	@Test(dependsOnMethods= {"clickOnClientButton"})
 		public void sendInvalidDataOnClientPage() {
 			Clientpage client = new Clientpage(driver);
@@ -164,7 +165,7 @@ public class LoginPage_test extends BaseClass {
 			client.dateOfBirth();
 		}
 		
-		@Test(dependsOnMethods= {"clickOnClientButton"})
+	//	@Test(dependsOnMethods= {"clickOnClientButton"})
 		public void sendBlankDataOnPreUnderwritingPage() throws InterruptedException {
 			test = extent.createTest("Client:Send blank data on pre- underwritong page and verify valid error message");
 			Clientpage client = new Clientpage(driver);
@@ -217,11 +218,16 @@ public class LoginPage_test extends BaseClass {
 			PreUnderWritingPage preunderwriting = new PreUnderWritingPage(driver);
 			Thread.sleep(12000);
 			preunderwriting.blannkDataPass();
+			Thread.sleep(12000);
+			preunderwriting.listOfDropdownHeightFiled();
+			Thread.sleep(2000);
+			preunderwriting.listOfDropdownWeightField();
+		
 		}
 		
 		
 			
-	//		@Test(dependsOnMethods= {"clickOnClientButton"})
+			@Test(dependsOnMethods= {"clickOnClientButton"})
 			public void journeySelection() throws InterruptedException {
 				test = extent.createTest("Client:Creat client");
 				Clientpage client = new Clientpage(driver);
@@ -310,12 +316,9 @@ public class LoginPage_test extends BaseClass {
 			//	Thread.sleep(9000);
 				ProtectiveImpInformation protectiveimpinf = new ProtectiveImpInformation(driver);
 				Thread.sleep(9000);
-				CorebridgeSpecificInformation core = new CorebridgeSpecificInformation(driver);
-				core.switchWindow();
-				Thread.sleep(10000);
-		//		protectiveimpinf.switchWindow();
-		//		Thread.sleep(13000);
 				CorebridgeSpecificInformation cbsi = new CorebridgeSpecificInformation(driver);
+				cbsi.switchWindow();
+				Thread.sleep(10000);
 				cbsi.developerTooldropDown();
 				protectiveimpinf.noConditionApply();
 				protectiveimpinf.nextBtn();
@@ -351,7 +354,7 @@ public class LoginPage_test extends BaseClass {
 				piip.stateDropDownProtective();
 				piip.zipcode();
 				piip.nextBtnOnPolicyOwnerInfo();
-		//Proposed Insured Information page
+	  //Proposed Insured Information page
 				  Thread.sleep(7000);
 				piip.birthplaceSelection();
 				piip.stateofBirthSelection();
@@ -425,7 +428,261 @@ public class LoginPage_test extends BaseClass {
 			
 			}
 			
-			@Test(dependsOnMethods= {"journeySelection"},enabled=false)
+		//	@Test(dependsOnMethods= {"journeySelection"},enabled=true)
+			public void negativeCaseForProtectiveImpInfoPage() throws InterruptedException {
+				test = extent.createTest("Create protective journey");
+				QuoteResultspage quoteresult = new QuoteResultspage(driver);
+				Thread.sleep(9000);
+				quoteresult.selecteProtectiveJourney();
+				Thread.sleep(9000);
+				ProtectiveImpInformation protectiveimpinf = new ProtectiveImpInformation(driver);
+				Thread.sleep(9000);
+				CorebridgeSpecificInformation cbsi = new CorebridgeSpecificInformation(driver);
+				cbsi.switchWindow();
+			    Thread.sleep(10000);
+				cbsi.developerTooldropDown();
+				protectiveimpinf.yesConditionApply();
+				protectiveimpinf.alertMsg();
+	//			Thread.sleep(3000);
+				protectiveimpinf.noConditionApply();
+				protectiveimpinf.nextBtn();
+			//Start App - Proposed Insured Information Page.
+				protectiveimpinf.nextBtnPIIpage();
+				protectiveimpinf.verifyErrorMsgOnAddressField();
+				protectiveimpinf.verifyrrorMsgOnCityField();
+				protectiveimpinf.verifyErrorMsgOnStateField();
+				protectiveimpinf.verifyErrorMsgOnZipField();
+				protectiveimpinf.verifyErrorMsgOnEmailField();
+				protectiveimpinf.verifyErrorMsgOnPhoneField();
+				protectiveimpinf.verifyErrorMsgOnSSNField();
+				protectiveimpinf.verifyErrorMsgOnMaritalStatusField();	
+			}
+			
+			//@Test(dependsOnMethods= {"journeySelection"},enabled=true)
+			public void negativeTestcaseForPolicyOwnerInfoPage() throws InterruptedException {
+				test = extent.createTest("Create protective journey");
+				QuoteResultspage quoteresult = new QuoteResultspage(driver);
+				Thread.sleep(9000);
+				quoteresult.selecteProtectiveJourney();
+			//	Thread.sleep(9000);
+				ProtectiveImpInformation protectiveimpinf = new ProtectiveImpInformation(driver);
+				Thread.sleep(9000);
+				CorebridgeSpecificInformation cbsi = new CorebridgeSpecificInformation(driver);
+				cbsi.switchWindow();
+				Thread.sleep(10000);
+				cbsi.developerTooldropDown();
+				protectiveimpinf.noConditionApply();
+				protectiveimpinf.nextBtn();
+		//Start App-Proposed Insured Information page
+				protectiveimpinf.suffixSelection();
+				protectiveimpinf.addressSend();
+				protectiveimpinf.address2Send();
+				protectiveimpinf.city();
+				protectiveimpinf.zipCode();
+				protectiveimpinf.stateSelection();
+				protectiveimpinf.emailSend();
+				protectiveimpinf.phoneNumberSend();
+				protectiveimpinf.SocialSecurityNumber();
+				protectiveimpinf.maritalStatus();
+				protectiveimpinf.issuedInState();
+				protectiveimpinf.driverLicenseNum();
+				protectiveimpinf.noOwnerOfPolicy();
+				protectiveimpinf.nextBtnPIIpage();
+		//Policy Owner Information Page		
+			    ProposedInsuredInformationPage piip = new ProposedInsuredInformationPage(driver);	
+			    Thread.sleep(10000);
+				piip.ownerSelection();
+				piip.nextBtnOnPolicyOwnerInfo();
+				piip.validationMessage();
+				
+			}
+			
+		//	@Test(dependsOnMethods= {"journeySelection"},enabled=true)
+			public void negativetestCaseOfProposedInsuredInfo() throws InterruptedException{
+				test = extent.createTest("Create protective journey");
+				QuoteResultspage quoteresult = new QuoteResultspage(driver);
+				Thread.sleep(9000);
+				quoteresult.selecteProtectiveJourney();
+			//	Thread.sleep(9000);
+				ProtectiveImpInformation protectiveimpinf = new ProtectiveImpInformation(driver);
+				Thread.sleep(9000);
+				CorebridgeSpecificInformation cbsi = new CorebridgeSpecificInformation(driver);
+				cbsi.switchWindow();
+				Thread.sleep(10000);
+				cbsi.developerTooldropDown();
+				protectiveimpinf.noConditionApply();
+				protectiveimpinf.nextBtn();
+		//Start App-Proposed Insured Information page
+				protectiveimpinf.suffixSelection();
+				protectiveimpinf.addressSend();
+				protectiveimpinf.address2Send();
+				protectiveimpinf.city();
+				protectiveimpinf.zipCode();
+				protectiveimpinf.stateSelection();
+				protectiveimpinf.emailSend();
+				protectiveimpinf.phoneNumberSend();
+				protectiveimpinf.SocialSecurityNumber();
+				protectiveimpinf.maritalStatus();
+				protectiveimpinf.issuedInState();
+				protectiveimpinf.driverLicenseNum();
+				protectiveimpinf.noOwnerOfPolicy();
+				protectiveimpinf.nextBtnPIIpage();
+		//Policy Owner Information Page
+			    ProposedInsuredInformationPage piip = new ProposedInsuredInformationPage(driver);	
+			    Thread.sleep(7000);
+				piip.ownerSelection();
+				piip.fn();
+				piip.ln();
+				piip.relaDropProtective();
+				piip.genderSelection();
+				piip.dateOfBirth();
+				piip.SSNumber();
+				piip.mobileNumber();
+				piip.email();
+				piip.address();
+				piip.city();
+				piip.stateDropDownProtective();
+				piip.zipcode();
+				piip.nextBtnOnPolicyOwnerInfo();
+		//Proposed Insured Information Page
+				Thread.sleep(10000);
+				piip.clickOnnextBtn();
+				piip.birthplaceFieldValidationMsg();
+				piip.houseHoldIncomeFieldvalidationMsg();
+				piip.usCitizenFieldValidation();
+				piip.usArmedForcedFieldValidationMsg();
+			}
+			
+		//	@Test(dependsOnMethods= {"journeySelection"},enabled=true)
+			public void negativeTestForCorebridgeJourney() throws InterruptedException {
+				test = extent.createTest("Create corebridge journey");
+				QuoteResultspage quoteresult = new QuoteResultspage(driver);
+				Thread.sleep(10000);
+				quoteresult.applybtnCoreBridgeJourney();
+				Thread.sleep(9000);
+				CorebridgeSpecificInformation core = new CorebridgeSpecificInformation(driver);
+				core.switchWindow();
+				Thread.sleep(10000);
+				core.developerTooldropDown();
+				Thread.sleep(5000);
+				core.noCriteriaMet();
+				core.alertMessage();
+				Thread.sleep(5000);
+				core.criteriaMet();
+				core.clickOnNextBtn();
+				Thread.sleep(10000);
+				ProposedInsuredInformationPage piipage = new ProposedInsuredInformationPage(driver);
+				piipage.clickOnnextBtn();
+				piipage.validationMsgOfSSNumber();
+				piipage.validationMsgOfAddressField();
+				piipage.validationMsgOfCityField();
+				piipage.validationMsgOfStateField();
+				piipage.validationMsgOfZipField();
+				piipage.validationMsgOfEmailField();
+				piipage.validationMsgOfPhoneNumField();
+				piipage.validationMsgOfDriverLicenceDropdown();
+				piipage.validationMsgOfOwnerOfPolicyDropdown();
+				Thread.sleep(10000);
+				piipage.SSN();
+				piipage.addressSend();
+				piipage.address2Send();
+				piipage.citypass();
+				piipage.stateSelection();
+				piipage.sendZipCode();
+				piipage.emailPass();
+				piipage.phoneNumberPass();
+				piipage.yesValidDriverLic();
+				piipage.IssuedState();
+				piipage.driverLicenseNumber();
+				piipage.noOwnerofThisPolicy();
+				piipage.clickOnnextBtn();
+				Thread.sleep(10000);
+				piipage.nextBtnOnPolicyOwnerInfo();
+				piipage.validationMsgIsOwnerField();
+				Thread.sleep(5000);
+				piipage.ownerSelection();
+				piipage.nextBtnOnPolicyOwnerInfo();
+				piipage.validationMsgPICorebridgeJourney();
+				Thread.sleep(5000);
+				piipage.fn();
+				piipage.ln();
+				piipage.relationship();
+				piipage.dateOfBirth();
+				piipage.SSNumber();
+				piipage.mobileNumber();
+				piipage.email();
+				piipage.address();
+				piipage.city();
+				piipage.stateSelected();
+				piipage.zipcode();
+				piipage.haveDriversLicense();
+				piipage.DLissued();
+				piipage.driverLicenseNum();
+				piipage.nextBtnOnPolicyOwnerInfo();
+				Thread.sleep(5000);
+				piipage.nextBtn();
+				Thread.sleep(5000);
+				piipage.validationMsgOfPIIPage();
+				piipage.birthplaceSelection();
+				piipage.stateofBirthSelection();
+				piipage.nUsCitizen();
+				piipage.citizenCounty();
+				piipage.noUSArmyForced();
+				piipage.nextBtn();
+				Thread.sleep(8000);
+				ExistingPolicyInformationPage epipage = new ExistingPolicyInformationPage(driver);
+				epipage.nextBtnOnExistingPolicyInfoPage();
+				epipage.validationMsgofExistingPolicyInfoPage();
+				epipage.noPendingApplication();
+				epipage.noProposedInsuredDeclined();
+				epipage.proposedHasAnyLifeInsurance();
+				epipage.existingPolicyDetail();
+				epipage.questionForExistingPolicy();
+				epipage.nextBtnOnExistingPolicyInfoPage();
+				Thread.sleep(5000);
+				epipage.nextBtnOnFinacialInformationPage();
+				epipage.validationMsgOnFinacialSpeInfoPage();
+				epipage.earnedIncome();
+				epipage.sendHouseHoldIncome();
+				epipage.sendNetWorthIncome();
+				epipage.insuredReplace();
+				epipage.noAwareAboutOtherInsured();
+				epipage.nextBtnOnFinacialInformationPage();
+				Thread.sleep(5000);
+				epipage.nextBtnOnAdditionalPolicyInformationPage();
+				epipage.validationMsgOfAdditionalPolicyInfoPage();
+				Thread.sleep(5000);
+				epipage.YesmetProposedInsured();
+				epipage.selectedInsuredType();
+				epipage.specifyInsuredPurpose();
+				epipage.premiumPayerSelection();
+				epipage.paymentSourceSelected();
+				epipage.noTemporyInsuranceAgreement();
+				epipage.nextBtnOnAdditionalPolicyInformationPage();
+				Thread.sleep(8000);
+				epipage.relationshipSelection();
+				epipage.nextBtn();
+				epipage.validationMsg();
+				epipage.relationshipSelection();
+				epipage.information();
+				epipage.addPrimaryBeneficiaries();
+				epipage.selectedRelationship();
+				epipage.benefiariesDetail();
+				Thread.sleep(8000);
+				epipage.addContingentBeneficiaries();
+				Thread.sleep(3000);
+				epipage.relationSelection();
+				epipage.contigentDetail();
+				epipage.corporateOfficeFN();
+				epipage.corporateOfficeLN();
+				epipage.corporateOfficerTitle();
+				epipage.bussinessEntityTIN();
+				epipage.nextBtn();
+				Thread.sleep(8000);
+			}
+			
+			
+		//	@Test(dependsOnMethods= {"journeySelection"},enabled=true)
 			public void corebridgeJourney() throws InterruptedException {
 				test = extent.createTest("Create corebridge journey");
 				QuoteResultspage quoteresult = new QuoteResultspage(driver);
@@ -536,10 +793,85 @@ public class LoginPage_test extends BaseClass {
 			
 			}
 			
+			@Test(dependsOnMethods= {"journeySelection"},enabled=true)
+			public void negativeTestOfPacificLifeJourney() throws InterruptedException {
+				test = extent.createTest("Create pacific life journey");
+				//Quote Results Page
+							QuoteResultspage quoteresult = new QuoteResultspage(driver);
+							Thread.sleep(9000);
+						//	quoteresult.ClickedOnShowmoreProductBtn();
+							Thread.sleep(4000);
+							quoteresult.applyBtnPacificLifeJourney();
+				//Pacific Life Specific Information page
+							Thread.sleep(10000);
+							CorebridgeSpecificInformation cbsi = new CorebridgeSpecificInformation(driver);
+							cbsi.switchWindow();
+							Thread.sleep(13000);
+							ProtectiveImpInformation protectiveimpinf = new ProtectiveImpInformation(driver);
+							cbsi.developerTooldropDown();
+							protectiveimpinf.yesConditionalApply();
+							protectiveimpinf.alertmsg();
+							protectiveimpinf.noConditionApply();
+							protectiveimpinf.nextBtn();
+							protectiveimpinf.nextBtnPIIpage();
+							protectiveimpinf.validationMsgOfPIInfoPagePacificLifeTerm();
+							protectiveimpinf.suffixSelection();
+							protectiveimpinf.addressSend();
+							protectiveimpinf.address2Send();
+							protectiveimpinf.city();
+							protectiveimpinf.zipCode();
+							protectiveimpinf.stateSelection();
+							protectiveimpinf.emailSend();
+							protectiveimpinf.phoneNumberSend();
+							protectiveimpinf.SocialSecurityNumber();
+							protectiveimpinf.maritalStatus();
+							protectiveimpinf.issuedInState();
+							protectiveimpinf.driverLicenseNum();
+							protectiveimpinf.noOwnerOfPolicy();
+							protectiveimpinf.nextBtnPIIpage();
+							ProposedInsuredInformationPage piipage = new ProposedInsuredInformationPage(driver);
+							piipage.nextBtnOnPolicyOwnerInfo();
+							piipage.ownerSelection();
+							piipage.fn();
+							piipage.ln();
+							piipage.relationship();
+							piipage.dateOfBirth();
+							piipage.birthState();
+							piipage.mobileNoSpecificLife();
+							piipage.emailSpecifcLife();
+							piipage.addressSpecificLife();
+							piipage.citySpecificLife();
+							piipage.stateSpecificLife();
+							piipage.zipSpecificLife();
+							piipage.noContingentOwner();
+							piipage.nextBtnOnPolicyOwnerInfo();
+							piipage.nextBtn();
+							piipage.validationMsgOnPIInfoPageForPacific();
+							
+							piipage.birthplaceSelection();
+							piipage.stateofBirthSelection();
+							piipage.occupationSpecificLifeSelection();
+							piipage.nUsCitizen();
+							piipage.noInUSarmedForced();
+							Thread.sleep(3000);
+							piipage.nextBtn();
+							ExistingPolicyInformationPage epipage = new ExistingPolicyInformationPage(driver);
+							epipage.nextBtnOnExistingPolicyInfoPage();
+							epipage.validationMsgEPForPacificLife();
+							epipage.noPendingApplication();
+							epipage.noProposedInsuredDeclined();
+							epipage.proposedHasAnyLifeInsurance();
+							epipage.existingPolicyDetail();
+							epipage.nextBtnOnExistingPolicyInfoPage();
+							PacificLifeSpecificInfo plsi = new PacificLifeSpecificInfo(driver);
+							plsi.nextBtnOnPacificLifeSpecificImfPage();
+							
+			}
+			
 			
 		
 	//Pacific Life journey
-			@Test(dependsOnMethods= {"journeySelection"},enabled=false)
+		//	@Test(dependsOnMethods= {"journeySelection"},enabled=true)
 			public void pacificLifeJourney() throws InterruptedException {
 				test = extent.createTest("Create pacific life journey");
 	//Quote Results Page
@@ -793,7 +1125,7 @@ public class LoginPage_test extends BaseClass {
 						eppage.submitButton();
 						
 					}
-	//		@Test(dependsOnMethods= {"journeySelection"})		
+//			@Test(dependsOnMethods= {"journeySelection"})		
 			public void lgaJourney() throws InterruptedException {
 				test = extent.createTest("Create symetra journey");
 				QuoteResultspage quoteresult = new QuoteResultspage(driver);
@@ -812,10 +1144,69 @@ public class LoginPage_test extends BaseClass {
 				Thread.sleep(4000);
 				lgterm.refreshData();
 				Thread.sleep(5000);
+				lgterm.ssnumber();
+				lgterm.address();
+				lgterm.city();
+				lgterm.stateSelection();
+				lgterm.zip();
+				lgterm.email();
+				lgterm.phoneNumber();
+				lgterm.noUScitizen();
+				lgterm.residentialStatus();
 				lgterm.nextBtnOnPIpage();
-				
-				
+	//Proposed Insured Information Continued Page
+				Thread.sleep(10000);
+				lgterm.noOwnerPolicy();
+				lgterm.noTempInsuAgreement();
+				lgterm.noSaveAge();
+				lgterm.purposeOfInsuredDropdown();
+				lgterm.paymentFrequency();
+				lgterm.nextBtn();
+	//Policy Owner Info Page
+				ProposedInsuredInformationPage piip = new ProposedInsuredInformationPage(driver);	
+				Thread.sleep(7000);
+			    piip.ownerSelection();
+				piip.fn();
+				piip.ln();
+				piip.relationDrpLGATerm();
+			//	piip.genderSelection();
+				piip.dateOfBirth();
+				piip.SSNumber();
+				piip.mobileNumber();
+				piip.email();
+	  			piip.address();
+	  			piip.cityLGATerm();
+	  			piip.zipLGATerm();
+	  			piip.stateDropdownLGATerm();
+				piip.nextBtnOnPolicyOwnerInfo();
+	//Beneficiary Information Page
+				Thread.sleep(10000);
+				lgterm.relationshipSelection();
+				lgterm.firstName();
+				lgterm.lastName();
+				lgterm.percentage();
+				lgterm.dob();
+				lgterm.addPrimaryBene();
+				lgterm.relationSelectionaddPrimary();
+				lgterm.bussinessName();
+				lgterm.percentageAddPrimary();
+				lgterm.contingentButton();
+				lgterm.relationSelectionContingent();
+				lgterm.fNameContingent();
+				lgterm.lastNameContingent();
+				lgterm.percentageContingent();
+				lgterm.dobContingent();
+				lgterm.nextBtnOnBIpage();
+	//Agent Information Page
+				lgterm.yesAppointedWithBanner();
+				lgterm.nextBtnAIPageOnLGAJourney();
+	//Submit page
+				lgterm.headlineVerify();
+				lgterm.alertMsg();
+				lgterm.submitBtn();
 				
 			}
+			
+			
 			
 }

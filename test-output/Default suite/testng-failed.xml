@@ -6,11 +6,12 @@
       <class name="AshBrokerage.test.LoginPage_test">
         <methods>
           <include name="clickOnClientButton"/>
+          <include name="negativeTestOfPacificLifeJourney"/>
           <include name="setup"/>
           <include name="login"/>
           <include name="reportsetup"/>
           <include name="endReports"/>
-          <include name="sendBlankDataOnPreUnderwritingPage"/>
+          <include name="journeySelection"/>
         </methods>
       </class> <!-- AshBrokerage.test.LoginPage_test -->
     </classes>

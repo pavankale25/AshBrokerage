@@ -135,8 +135,12 @@ public class QuoteResultspage {
 	}
 	
 	public void applyBtnPacificLifeJourney() {
-       String text =pecificLifeText.getText();
-        System.out.println(text);
+     //  String text =pecificLifeText.getText();
+     //   System.out.println(text);
+		JavascriptExecutor js = (JavascriptExecutor)driver;
+		js.executeScript("arguments[0].scrollIntoView(true);", Protective);
+		showMoreProduct_btn.click();
+		
 		PacificLifeApplyBtn.click();
 	}
 	

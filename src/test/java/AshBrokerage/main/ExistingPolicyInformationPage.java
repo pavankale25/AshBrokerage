@@ -6,6 +6,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.testng.Assert;
 import org.openqa.selenium.interactions.Actions;
 public class ExistingPolicyInformationPage {
 	public WebDriver driver;
@@ -940,13 +941,158 @@ public void submitButton() {
     	    }
     }
     
+    //negative test case of Existing Policy Info Page
+    @FindBy(xpath="//div[@class='me-auto']")
+    private WebElement ValidationMsgforApplicationPendingDropdown;
+    
+    @FindBy(xpath="(//div[@class='me-auto'])[2]")
+    private WebElement ValidationMsgForPostpondDropdown;
+    
+    @FindBy(xpath="(//div[@class='me-auto'])[3]")
+    private WebElement ValidationMsgForAnyLifeInsuranceddropdown;
+    
+    public void validationMsgofExistingPolicyInfoPage() {
+    	String ExpectedValidationMsg = "This field is required.";
+    	String ActualValidationMsgForApplicationPending = ValidationMsgforApplicationPendingDropdown.getText();
+    	Assert.assertEquals(ExpectedValidationMsg, ActualValidationMsgForApplicationPending);
+    	
+    	String ActualValidationMsgforPostpondDropdown = ValidationMsgForPostpondDropdown.getText();
+    	Assert.assertEquals(ExpectedValidationMsg, ActualValidationMsgforPostpondDropdown);
+    	
+    	String ActualValidationMsgforAnyLifeInsuranceDropdown = ValidationMsgForAnyLifeInsuranceddropdown.getText();
+    	Assert.assertEquals(ActualValidationMsgforAnyLifeInsuranceDropdown, ExpectedValidationMsg);
+    }
     
     
+    //negative test case of Finacial Specific Info Page for corebridge journey
+    @FindBy(xpath="//div[@class='me-auto']")
+    private WebElement ValidationMsgOfEarnedIncomeField;
     
+    @FindBy(xpath="(//div[@class='me-auto'])[2]")
+    private WebElement ValidationMsgOfHouseHoldIncomeField;
     
+    @FindBy(xpath="(//div[@class='me-auto'])[3]")
+    private WebElement ValidationMsgOfNetWorthField;
     
+    @FindBy(xpath="(//div[@class='me-auto'])[4]")
+    private WebElement ValidationMsgOfDropdown;
     
+    public void validationMsgOnFinacialSpeInfoPage() {
+    	String ExpectedValidationMsg = "This field is required.";
+    	String ActualValidationMsgOfEarnedincomeField = ValidationMsgOfEarnedIncomeField.getText();
+    	Assert.assertEquals(ActualValidationMsgOfEarnedincomeField, ExpectedValidationMsg);
+    	
+    	String ActualValidationMsgOfHouseHoldIncomeField = ValidationMsgOfHouseHoldIncomeField.getText();
+    	Assert.assertEquals(ActualValidationMsgOfHouseHoldIncomeField, ExpectedValidationMsg);
+    	
+    	String ActualValidationMsgOfNetworkField = ValidationMsgOfNetWorthField.getText();
+    	Assert.assertEquals(ExpectedValidationMsg, ActualValidationMsgOfNetworkField);
+    	
+    	String ActualValidationMsgOfDropdown = ValidationMsgOfDropdown.getText();
+    	Assert.assertEquals(ExpectedValidationMsg, ActualValidationMsgOfDropdown);
+    }
     
+    //negative test case of Additional Policy Info page for corebridge journey
+    @FindBy(xpath="//div[@class='me-auto']")
+    private WebElement ValidationPersonallyMetDropdownField;
+    
+    @FindBy(xpath="(//div[@class='me-auto'])[2]")
+    private WebElement ValidationMsgOfPurposeOfInsuField;
+    
+    @FindBy(xpath="(//div[@class='me-auto'])[3]")
+    private WebElement ValidationMsgOfPleaseSpecifyField;
+    
+    @FindBy(xpath="(//div[@class='me-auto'])[4]")
+    private WebElement ValidationMsgOfPremiumPayerField;
+    
+    @FindBy(xpath="(//div[@class='me-auto'])[5]")
+    private WebElement ValidationMsgOfPremiumPayerSourceField;
+    
+    @FindBy(xpath="(//div[@class='me-auto'])[6]")
+    private WebElement ValidationMsgOfTIAgreementField;
+    
+   public void validationMsgOfAdditionalPolicyInfoPage() {
+	   String ExpectedValidationMsg = "This field is required.";
+	   String ActualPersonallyMetDropdownField = ValidationPersonallyMetDropdownField.getText();
+	   Assert.assertEquals(ExpectedValidationMsg, ActualPersonallyMetDropdownField);
+
+	   String ExpecteddropdownValidationMsg = "You must select one.";
+	   String ActualValidationMsgOfPurposeOfInsuField = ValidationMsgOfPurposeOfInsuField.getText();
+	   Assert.assertEquals(ExpecteddropdownValidationMsg, ActualValidationMsgOfPurposeOfInsuField);
+	   
+	   String ActualValidationMsgOfPleaseSpecifyField = ValidationMsgOfPleaseSpecifyField.getText();
+	   Assert.assertEquals(ExpecteddropdownValidationMsg, ActualValidationMsgOfPleaseSpecifyField);
+	   
+	   String ActualValidationMsgOfPremiumPayerField = ValidationMsgOfPremiumPayerField.getText();
+	   Assert.assertEquals(ActualValidationMsgOfPremiumPayerField, ExpecteddropdownValidationMsg);
+	   
+	   String ActualValidationMsgOfPremiumSourceField = ValidationMsgOfPremiumPayerSourceField.getText();
+	   Assert.assertEquals(ActualValidationMsgOfPremiumSourceField, ExpecteddropdownValidationMsg);
+	   
+	   String ActualTIAgreementValidationMsg = ValidationMsgOfTIAgreementField.getText();
+	   Assert.assertEquals(ExpectedValidationMsg, ActualTIAgreementValidationMsg);
+   }
+   
+   @FindBy(xpath="//div[@class='mud-error-text py-2']")
+   private WebElement TotalEqualValidationMsg;
+   
+   @FindBy(xpath="//div[@class='me-auto']")
+   private WebElement FnameValidationMsg;
+   
+   @FindBy(xpath="(//div[@class='me-auto'])[2]")
+   private WebElement LnameValidationMsg;
+   
+   @FindBy(xpath="(//div[@class='me-auto'])[3]")
+   private WebElement PercentageValidationMsg;
+   
+   @FindBy(xpath="(//div[@class='me-auto'])[4]")
+   private WebElement SSNumberValidationMsg;
+   
+   public void validationMsg() {
+	   String ActualValidation = TotalEqualValidationMsg.getText();
+	   String ExpectedValidationMsg = "Total must equal 100.";
+	   Assert.assertEquals(ActualValidation, ExpectedValidationMsg);
+	   
+	   String ExpectedTextFieldValidation = "This field is required.";
+	   String ActualFnameFieldValidationMsg = FnameValidationMsg.getText();
+	   Assert.assertEquals(ExpectedTextFieldValidation,ActualFnameFieldValidationMsg);
+	   
+	   String ActualLnameFieldValidationMsg = LnameValidationMsg.getText();
+	   Assert.assertEquals(ActualLnameFieldValidationMsg,ExpectedTextFieldValidation);
+	   
+	   String ActualPerValidation = PercentageValidationMsg.getText();
+	   Assert.assertEquals(ActualPerValidation, ExpectedTextFieldValidation);
+	   
+	   String ActualSSNumberValidation = SSNumberValidationMsg.getText();
+	   Assert.assertEquals(ActualSSNumberValidation, ExpectedTextFieldValidation);
+	   
+   }
+   
+   //negative test cases for Existing Policy Information Page for Pacific Life Journey
+   @FindBy(xpath="//div[@class='me-auto']")
+   private WebElement RadioBtn1;
+   
+   @FindBy(xpath="(//div[@class='me-auto'])[2]")
+   private WebElement RadioBtn2;
+   
+   @FindBy(xpath="(//div[@class='me-auto'])[3]")
+   private WebElement RadioBtn3;
+   
+   public void validationMsgEPForPacificLife() {
+	   String ExpectedValidationMsgForRadioBtnField = "This field is required.";
+	  String ActualValidationForRadioBtn1 = RadioBtn1.getText();
+	   Assert.assertEquals(ExpectedValidationMsgForRadioBtnField, ActualValidationForRadioBtn1);
+	   
+	   String ActualValidationForRadioBtn2 = RadioBtn1.getText();
+	   Assert.assertEquals(ExpectedValidationMsgForRadioBtnField, ActualValidationForRadioBtn2);
+	   
+	   String ActualValidationForRadioBtn3 = RadioBtn1.getText();
+	   Assert.assertEquals(ExpectedValidationMsgForRadioBtnField, ActualValidationForRadioBtn3);
+   }
+   
+   
+   
+   
     
     
     

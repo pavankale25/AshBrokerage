@@ -1,5 +1,8 @@
 package AshBrokerage.main;
 
+import java.util.List;
+
+import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -122,8 +125,34 @@ public class PreUnderWritingPage {
 		Assert.assertEquals(expectedValidErrorMsg, validErrorMsgOfHealthConditionField);
 	}
 	
+	public void listOfDropdownHeightFiled() {
+		height_dropdown.click();
+	 List<WebElement> options = driver.findElements(By.className("listItem"));
+	 for (WebElement option : options) {                       //By.cssSelector(".dropdown-option")
+         System.out.print(option.getText() + " , ");
+     }System.out.println();
+	 
+	}
 	
+	public void listOfDropdownWeightField() {
+		weight_dropdown.click();
+		 List<WebElement> optionsWeight = driver.findElements(By.className("listItem"));
+		 for (WebElement optionweight : optionsWeight) {
+			 System.out.print(optionweight.getText() + " , ");
+	      //   String ActualWeight = option.getText() + " , ";
+	       //  String ExpectedWeight = 
+	     //   Assert.assertEquals(ActualWeight, ExpectedWeight);
+	         
+	}System.out.println();
+	}
 	
-
-
+/*	public void marijuanaUsageDrpValue() {
+		Marijuana_usage.click();
+		 List<WebElement> optionsMarijuana = driver.findElements(By.className("listItem"));
+		 for (WebElement marijuanaOptions : optionsMarijuana) {
+			String ActualMarijuanaUsage = marijuanaOptions.getText() + ",";
+			 String ExpectedMarijuanaUsage = "Never,Former,Current";
+			 Assert.assertEquals(ActualMarijuanaUsage, ExpectedMarijuanaUsage);
+	}
+}*/
 }

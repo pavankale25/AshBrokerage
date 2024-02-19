@@ -5,6 +5,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.testng.Assert;
 import org.openqa.selenium.interactions.Actions;
 public class ProposedInsuredInformationPage {
 	
@@ -128,6 +129,135 @@ public class ProposedInsuredInformationPage {
 		Thread.sleep(4000);
 		nextbtn.click();
 	}
+	
+	//Validation message verification proposed Insured Information Page
+	@FindBy(xpath="//div[@class='me-auto']")
+	private WebElement BirthPlaceValidation;
+	
+	@FindBy(xpath="(//div[@class='me-auto'])[2]")
+	private WebElement HouseHoldIncomeValidation;
+	
+	@FindBy(xpath="(//div[@class='me-auto'])[3]")
+	private WebElement USCitizenRadioBtnFieldValidation;
+	
+	@FindBy(xpath="(//div[@class='me-auto'])[4]")
+	private WebElement ServiceMemberOfUSArmyValidation;
+	
+	
+	
+	public void birthplaceFieldValidationMsg() {
+		String ExpecedErrorMsg = "You must select one.";
+		String ErrorMsgOfBirthPlaceField = BirthPlaceValidation.getText();
+		Assert.assertEquals(ExpecedErrorMsg, ErrorMsgOfBirthPlaceField);
+	}
+	
+	public void houseHoldIncomeFieldvalidationMsg() {
+		String ExpecedErrorMsg = "This field is required.";
+		String ErrorMsgOfHouseHoldIncomeField = HouseHoldIncomeValidation.getText();
+		Assert.assertEquals(ExpecedErrorMsg, ErrorMsgOfHouseHoldIncomeField);
+	}
+	
+	public void usCitizenFieldValidation() {
+		String ExpecedErrorMsg = "This field is required.";
+		String ErrorMsgOfUSCitizenField = USCitizenRadioBtnFieldValidation.getText();
+		Assert.assertEquals(ExpecedErrorMsg, ErrorMsgOfUSCitizenField);
+	}
+	
+	public void usArmedForcedFieldValidationMsg() {
+		String ExpecedErrorMsg = "This field is required.";
+		String ErrorMsgOfUSArmedForcedField = ServiceMemberOfUSArmyValidation.getText();
+		Assert.assertEquals(ExpecedErrorMsg, ErrorMsgOfUSArmedForcedField);
+	}
+	
+	//Validation message of PI Page for Corebridge journey.
+	@FindBy(xpath="//div[@class='me-auto']")
+	private WebElement SSNumberValidationMsg;
+	
+	@FindBy(xpath="(//div[@class='me-auto'])[2]")
+	private WebElement AddressFieldValidionMsg;
+	
+	@FindBy(xpath="(//div[@class='me-auto'])[3]")
+	private WebElement CityFieldValidationMsg;
+	
+	@FindBy(xpath="(//div[@class='me-auto'])[4]")
+	private WebElement StateFieldValidationMsg;
+	
+	@FindBy(xpath="(//div[@class='me-auto'])[5]")
+	private WebElement ZipFieldValidationMsg;
+	
+	@FindBy(xpath="(//div[@class='me-auto'])[6]")
+	private WebElement EmailFieldValidationMsg;
+	
+	@FindBy(xpath="(//div[@class='me-auto'])[7]")
+	private WebElement PhoneFieldValidationMsg;
+	
+	@FindBy(xpath="(//div[@class='me-auto'])[8]")
+	private WebElement DriverLicenceFieldValidationMsg;
+	
+	@FindBy(xpath="(//div[@class='me-auto'])[9]")
+	private WebElement OwnerOfPolicyFieldValidationMsg;
+	
+	public void validationMsgOfSSNumber() {
+		String ActualSSNValidation = SSNumberValidationMsg.getText();
+		String ExpectedSSNumberValidationMsg = "This field is required.";
+		Assert.assertEquals(ActualSSNValidation, ExpectedSSNumberValidationMsg);
+	}
+	
+	public void validationMsgOfAddressField() {
+		String ActualAddressFieldValidation = AddressFieldValidionMsg.getText();
+		String ExpectedAddressFieldValidationMsg = "This field is required.";
+		Assert.assertEquals(ActualAddressFieldValidation, ExpectedAddressFieldValidationMsg);
+	}
+	
+	public void validationMsgOfCityField() {
+		String ActualCityFieldValidationMsg = CityFieldValidationMsg.getText();
+		String ExpectedCityFieldValidationMsg = "This field is required.";
+		Assert.assertEquals(ActualCityFieldValidationMsg, ExpectedCityFieldValidationMsg);
+	}
+	
+	public void validationMsgOfStateField() {
+		String ActualStateFieldValidationMsg = StateFieldValidationMsg.getText();
+		String ExpectedStateFieldValidationMsg = "You must select one.";
+		Assert.assertEquals(ActualStateFieldValidationMsg, ExpectedStateFieldValidationMsg);
+	}
+	
+	public void validationMsgOfZipField() {
+		String ActualZipFieldValidationMsg = ZipFieldValidationMsg.getText();
+		String ExpectedZipFieldValidationMsg = "This field is required.";
+		Assert.assertEquals(ActualZipFieldValidationMsg, ExpectedZipFieldValidationMsg);
+	}
+	
+	public void validationMsgOfEmailField() {
+		String ActualEmailFieldValidationMsg = EmailFieldValidationMsg.getText();
+		String ExpectedEmailFieldValidationMsg = "This field is required.";
+		Assert.assertEquals(ActualEmailFieldValidationMsg, ExpectedEmailFieldValidationMsg);
+	}
+	
+	public void validationMsgOfPhoneNumField() {
+		String ActualPhoneFieldValidationMsg = PhoneFieldValidationMsg.getText();
+		String ExpectedPhoneFieldValidationMsg = "This field is required.";
+		Assert.assertEquals(ActualPhoneFieldValidationMsg, ExpectedPhoneFieldValidationMsg);
+	}
+	
+	public void validationMsgOfDriverLicenceDropdown() {
+		String ActualPhoneFieldValidationMsg = PhoneFieldValidationMsg.getText();
+		String ExpectedPhoneFieldValidationMsg = "This field is required.";
+		Assert.assertEquals(ActualPhoneFieldValidationMsg, ExpectedPhoneFieldValidationMsg);
+	}
+	
+	public void validationMsgOfOwnerOfPolicyDropdown() {
+		String ActualPhoneFieldValidationMsg = PhoneFieldValidationMsg.getText();
+		String ExpectedPhoneFieldValidationMsg = "This field is required.";
+		Assert.assertEquals(ActualPhoneFieldValidationMsg, ExpectedPhoneFieldValidationMsg);
+	}
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	//Policy Owner Information Page
 	@FindBy(xpath="//input[@class='mud-input-slot mud-input-root mud-input-root-text mud-input-root-adorned-end mud-select-input']")
@@ -364,6 +494,275 @@ public class ProposedInsuredInformationPage {
 		nextBtnpoi.click();
 	}
 	
+	@FindBy(xpath="//div[@class='me-auto']")
+	private WebElement ValidationMsgOfIsOwnerSection;
+	
+	public void validationMsgIsOwnerField() {
+		String ActualValidation = ValidationMsgOfIsOwnerSection.getText();
+		String ExpectedValidationMsg = "This field is required.";
+		Assert.assertEquals(ActualValidation, ExpectedValidationMsg);
+	}
+	
+	//Negative test cases for Policy Owner Information Page for Protective journey.
+	@FindBy(xpath="//div[@class='me-auto']")
+	private WebElement ValidationMsgOnFNField;  
+	
+	@FindBy(xpath="(//div[@class='me-auto'])[2]")
+	private WebElement ValidationMsgOnLNField;  
+	
+	@FindBy(xpath="(//div[@class='me-auto'])[3]")
+	private WebElement ValidationMsgOnRelationshipField;  
+	
+	@FindBy(xpath="(//div[@class='me-auto'])[4]")
+	private WebElement ValidationMsgOnGenderField;  
+	
+	@FindBy(xpath="(//div[@class='me-auto'])[5]")
+	private WebElement ValidationMsgOnDOBField;  
+	
+	@FindBy(xpath="(//div[@class='me-auto'])[6]")
+	private WebElement ValidationMsgOnSSNField;  
+	
+	@FindBy(xpath="(//div[@class='me-auto'])[7]")
+	private WebElement ValidationMsgOnMobileNumField;  
+	
+	@FindBy(xpath="(//div[@class='me-auto'])[8]")
+	private WebElement ValidationMsgOnEmailField;  
+	
+	@FindBy(xpath="(//div[@class='me-auto'])[9]")
+	private WebElement ValidationMsgOnAddressField;  
+	
+	@FindBy(xpath="(//div[@class='me-auto'])[10]")
+	private WebElement ValidationMsgOnCityField;  
+	
+	@FindBy(xpath="(//div[@class='me-auto'])[11]")
+	private WebElement ValidationMsgOnStateField;  
+	
+	@FindBy(xpath="(//div[@class='me-auto'])[12]")
+	private WebElement ValidationMsgOnZipField;  
+	
+	public void validationMessage() { //Individual 
+		String ExpectedValidationMsg = "This field is required.";
+		String ErrorMsgOnFNfield = ValidationMsgOnFNField.getText();
+		Assert.assertEquals(ExpectedValidationMsg, ErrorMsgOnFNfield);
+		
+		String ErrorMsgOnLNfield = ValidationMsgOnLNField.getText();
+		Assert.assertEquals(ExpectedValidationMsg, ErrorMsgOnLNfield);
+		
+		String ExpectedDropdownValidationMsg = "You must select one.";
+		String ErrorMsgOnRelationshipfield = ValidationMsgOnRelationshipField.getText();
+		Assert.assertEquals(ExpectedDropdownValidationMsg, ErrorMsgOnRelationshipfield);
+		
+		String ErrorMsgOnGenderfield = ValidationMsgOnGenderField.getText();
+		Assert.assertEquals(ExpectedDropdownValidationMsg, ErrorMsgOnGenderfield);
+		
+		String ErrorMsgOnDOBfield = ValidationMsgOnDOBField.getText();
+		Assert.assertEquals(ExpectedValidationMsg, ErrorMsgOnDOBfield);
+		
+		String ErrorMsgOnSSNField = ValidationMsgOnSSNField.getText();
+		Assert.assertEquals(ErrorMsgOnSSNField, ExpectedValidationMsg);
+		
+		String ErrorMsgOnMobileNumField = ValidationMsgOnMobileNumField.getText();
+		Assert.assertEquals(ErrorMsgOnMobileNumField, ExpectedValidationMsg);
+		
+		String ErrorMsgOnEmailField = ValidationMsgOnEmailField.getText();
+		Assert.assertEquals(ErrorMsgOnEmailField, ExpectedValidationMsg);
+		
+		String ErrorMsgOnAdressField = ValidationMsgOnAddressField.getText();
+		Assert.assertEquals(ErrorMsgOnAdressField, ExpectedValidationMsg);
+		
+		String ErrorMsgOnCityField = ValidationMsgOnCityField.getText();
+		Assert.assertEquals(ErrorMsgOnCityField, ExpectedValidationMsg);
+		
+		String ErrorMsgOnStateField = ValidationMsgOnStateField.getText();
+		Assert.assertEquals(ErrorMsgOnStateField, ExpectedDropdownValidationMsg);
+		
+	}
+	
+	@FindBy(xpath="(//div[@class='me-auto'])[4]")
+	private WebElement ValidationMsgOnDOBFieldCore; 
+	
+	@FindBy(xpath="(//div[@class='me-auto'])[5]")
+	private WebElement ValidationMsgOnSSNumberFieldCore;  
+	
+	@FindBy(xpath="(//div[@class='me-auto'])[6]")
+	private WebElement ValidationMsgOnMobileNumberFieldCore;  
+	
+	@FindBy(xpath="(//div[@class='me-auto'])[7]")
+	private WebElement ValidationMsgOnEmailNumberFieldCore;  
+	
+	@FindBy(xpath="(//div[@class='me-auto'])[8]")
+	private WebElement ValidationMsgOnAddressFieldCore;  
+	
+	@FindBy(xpath="(//div[@class='me-auto'])[9]")
+	private WebElement ValidationMsgOnCityFieldCore;  
+	
+	@FindBy(xpath="(//div[@class='me-auto'])[10]")
+	private WebElement ValidationMsgOnStateFieldCore;  
+	
+	@FindBy(xpath="(//div[@class='me-auto'])[11]")
+	private WebElement ValidationMsgOnZipFieldCore; 
+	
+	@FindBy(xpath="(//div[@class='me-auto'])[12]")
+	private WebElement ValidationMsgOnDriverLicenceFieldCore; 
+	
+	
+	
+	
+	public void validationMsgPICorebridgeJourney() {
+		String ExpectedValidationMsg = "This field is required.";
+		String ErrorMsgOnFNfield = ValidationMsgOnFNField.getText();
+		Assert.assertEquals(ExpectedValidationMsg, ErrorMsgOnFNfield);
+		
+		String ErrorMsgOnLNfield = ValidationMsgOnLNField.getText();
+		Assert.assertEquals(ExpectedValidationMsg, ErrorMsgOnLNfield);
+		
+		String ExpectedDropdownValidationMsg = "You must select one.";
+		String ErrorMsgOnRelationshipfield = ValidationMsgOnRelationshipField.getText();
+		Assert.assertEquals(ExpectedDropdownValidationMsg, ErrorMsgOnRelationshipfield);
+		
+		String ErrorMsgOnDOBfield = ValidationMsgOnDOBFieldCore.getText();
+		Assert.assertEquals(ExpectedValidationMsg, ErrorMsgOnDOBfield);
+		
+		String ErrorMsgOnSSNumberfield = ValidationMsgOnSSNumberFieldCore.getText();
+		Assert.assertEquals(ExpectedValidationMsg, ErrorMsgOnSSNumberfield);
+		
+		String ErrorMsgOnAddressfield = ValidationMsgOnAddressFieldCore.getText();
+		Assert.assertEquals(ExpectedValidationMsg, ErrorMsgOnAddressfield);
+		
+		String ErrorMsgOnCityfield = ValidationMsgOnCityFieldCore.getText();
+		Assert.assertEquals(ExpectedValidationMsg, ErrorMsgOnCityfield);
+		
+		String ErrorMsgOnStatefield = ValidationMsgOnStateFieldCore.getText();
+		Assert.assertEquals(ExpectedDropdownValidationMsg, ErrorMsgOnStatefield);
+		
+		String ErrorMsgOnDriverLicenceField = ValidationMsgOnDriverLicenceFieldCore.getText();
+		Assert.assertEquals(ErrorMsgOnDriverLicenceField, ExpectedValidationMsg);
+		
+	}
+	
+	//Validation message on Proposed Insured Information Page for Corebride journey
+	@FindBy(xpath="//div[@class='me-auto']")
+	private WebElement BirthPlaceValidationMsg;
+	
+	@FindBy(xpath="(//div[@class='me-auto'])[2]")
+	private WebElement USCitizenValidationMsg;
+	
+	@FindBy(xpath="(//div[@class='me-auto'])[3]")
+	private WebElement USArmedForcedValidationMsg;
+	
+	public void validationMsgOfPIIPage() {
+		String expectedValidationMsgofDropdown = "You must select one.";
+		String ActualBirthPlaceValidationMsg = BirthPlaceValidationMsg.getText();
+		Assert.assertEquals(expectedValidationMsgofDropdown, ActualBirthPlaceValidationMsg);
+		
+		String expectedValidationMsg = "This field is required.";
+		String ActualUSCitizenFieldValidation = USCitizenValidationMsg.getText();
+		Assert.assertEquals(expectedValidationMsg, ActualUSCitizenFieldValidation);
+		
+		String ActualUSArmedForceFieldValidation = USCitizenValidationMsg.getText();
+		Assert.assertEquals(expectedValidationMsg, ActualUSArmedForceFieldValidation);
+		
+		
+	}
+	
+	
+	@FindBy(xpath="//p[@class='mud-typography mud-typography-body1']")
+	private WebElement TrustOwner;
+	
+	@FindBy(xpath="//div[@class='me-auto']")
+	private WebElement ValidationMsgOnTrustNameField;  
+	
+	@FindBy(xpath="(//div[@class='me-auto'])[2]")
+	private WebElement ValidationMsgOnTaxIDField;  
+	
+	@FindBy(xpath="(//div[@class='me-auto'])[3]")
+	private WebElement ValidationMsgOnTrustDateField;  
+	
+	@FindBy(xpath="(//div[@class='me-auto'])[4]")
+	private WebElement ValidationMsgOnTrusteeNameField;  
+	
+	public void trustOwnerSelection() {
+		isTheOwner.click();
+		TrustOwner.click();
+	}
+	
+	public void validationMsgOnTrustOwnerSection() {
+		String ExpectedValidationMessage = "This field is required.";
+		String errorMsgOnTrustNameField = ValidationMsgOnTrustNameField.getText();
+		Assert.assertEquals(errorMsgOnTrustNameField, ExpectedValidationMessage);
+		
+		String errorMsgOnTaxIDfield = ValidationMsgOnTaxIDField.getText();
+		Assert.assertEquals(errorMsgOnTaxIDfield,ExpectedValidationMessage);
+		
+		String errorMsgOnTrustDatefield = ValidationMsgOnTrustDateField.getText();
+		Assert.assertEquals(errorMsgOnTrustDatefield, ExpectedValidationMessage);
+		
+		String errormsgOnTrusteeName = ValidationMsgOnTrusteeNameField.getText();
+		Assert.assertEquals(ExpectedValidationMessage, errormsgOnTrusteeName);
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	@FindBy(xpath="(//input[@class='mud-input-slot mud-input-root mud-input-root-text mud-input-root-adorned-end mud-select-input'])[2]")
+	private WebElement RelationDrpLGATerm;
+	
+	@FindBy(xpath="//p[@class='mud-typography mud-typography-body1']")
+	private WebElement brother;
+	
+	@FindBy(xpath="(//input[@class='mud-input-slot mud-input-root mud-input-root-text'])[8]")
+	private WebElement cityForLGATerm;  
+	
+	@FindBy(xpath="(//input[@class='mud-input-slot mud-input-root mud-input-root-text'])[9]")
+	private WebElement ZipForLGATerm;
+	
+	@FindBy(xpath="(//input[@class='mud-input-slot mud-input-root mud-input-root-text mud-input-root-adorned-end mud-select-input'])[3]")
+	private WebElement stateDrpLGATerm;
+	
+	@FindBy(xpath="//p[@class='mud-typography mud-typography-body1']")
+	private WebElement Alabama;
+	
+	public void relationDrpLGATerm() {
+		RelationDrpLGATerm.click();
+		brother.click();
+	}
+	
+	public void cityLGATerm() {
+		cityForLGATerm.sendKeys("tert");
+	}
+	
+	public void zipLGATerm() {
+		ZipForLGATerm.sendKeys("56789");
+	}
+	
+	public void stateDropdownLGATerm() {
+		stateDrpLGATerm.click();
+		Alabama.click();
+	}
+	
+	
+	
+	
 	
 	
 	//Proposed Insured Information page - 2
@@ -396,17 +795,20 @@ public class ProposedInsuredInformationPage {
 	@FindBy(xpath="(//input[@class='mud-input-slot mud-input-root mud-input-root-text mud-input-root-adorned-end mud-select-input'])[3]")
 	private WebElement occupationSpecificLife;
 	
+	@FindBy(xpath="//p[@class='mud-typography mud-typography-body1']")
+	private WebElement AgricultureOccuption;
+	
 	@FindBy(xpath="//p[contains(text(),'Automotive')]")
 	private WebElement Automative;
 	
-	public void occupationSpecificLifeSelection() {
-		occupationSpecificLife.click();
-		Automative.click();
+	public void occupationSpecificLifeSelection() throws InterruptedException {
+		occupationSpecificLife.sendKeys("agriculture");
+		Thread.sleep(5000);
+		AgricultureOccuption.click();
 	}
 	
 	@FindBy(xpath="(//input[@class='mud-radio-input'])[4]")
 	private WebElement NoUSArmedForce;
-	
 	public void noInUSarmedForced() {
 		NoUSArmedForce.click();
 	}
@@ -688,6 +1090,52 @@ public class ProposedInsuredInformationPage {
   public void nextBtnOnSymetraSpecificInfoPage() {
 	  nextBtnonSymetraSI.click();
   }
+  
+  //negative test case of pacific life journey
+  @FindBy(xpath="//div[@class='me-auto']")
+  private WebElement BirthPlacevalidation;
+  
+  @FindBy(xpath="(//div[@class='me-auto'])[2]")
+  private WebElement Occupationvalidation;
+  
+  @FindBy(xpath="(//div[@class='me-auto'])[3]")
+  private WebElement USCitizenvalidation;
+  
+  @FindBy(xpath="(//div[@class='me-auto'])[4]")
+  private WebElement USArmedvalidation;
+  
+  
+  //Validation Message on Proposured Insured Information page for pecific Life journey
+  @FindBy(xpath="//div[@class='me-auto']")
+  private WebElement BirthPlaceValidionPLJ;
+  
+  @FindBy(xpath="(//div[@class='me-auto'])[2]")
+  private WebElement OccupationValidionPLJ;
+  
+  @FindBy(xpath="(//div[@class='me-auto'])[3]")
+  private WebElement USCitizenRadioButtonValidionPLJ;
+  
+  @FindBy(xpath="(//div[@class='me-auto'])[4]")
+  private WebElement USArmedForcedRadioButtonValidionPLJ;
+  
+  public void validationMsgOnPIInfoPageForPacific() {
+	  String ExpectedValidationMsgForDropdown = "You must select one.";
+	  String ExpectedValidationMsgForTextBoxField = "This field is required.";
+	  String ActualValidationMsgForDropdownField = BirthPlaceValidionPLJ.getText();
+	  Assert.assertEquals(ExpectedValidationMsgForDropdown, ActualValidationMsgForDropdownField);
+	  
+	  String ActualValidationMsgOnOccuptionField = OccupationValidionPLJ.getText();
+	  Assert.assertEquals(ActualValidationMsgOnOccuptionField, ExpectedValidationMsgForDropdown);
+	  
+	  String ActualValidationMsgForTextBoxField = USCitizenRadioButtonValidionPLJ.getText();
+	  Assert.assertEquals(ExpectedValidationMsgForTextBoxField, ActualValidationMsgForTextBoxField);
+	  
+	  String ActualValidationMsgForUSArmedForced = USArmedForcedRadioButtonValidionPLJ.getText();
+	  Assert.assertEquals(ActualValidationMsgForUSArmedForced, ExpectedValidationMsgForTextBoxField);
+  }
+  
+  
+  
   
   
   

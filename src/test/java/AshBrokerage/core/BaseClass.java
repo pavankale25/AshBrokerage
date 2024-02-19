@@ -30,6 +30,7 @@ import com.aventstack.extentreports.Status;
 import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 import com.aventstack.extentreports.reporter.configuration.Theme;
 import io.github.bonigarcia.wdm.WebDriverManager;
+
 public class BaseClass {
 		protected final Logger logger = LogManager.getLogger(getClass());
 		public static ExtentSparkReporter spark;
@@ -82,7 +83,8 @@ public class BaseClass {
 			driver.manage().window().maximize();
 			driver.manage().deleteAllCookies();
 			driver.get("https://dynamic-advisor-staging.techf.com");
-			driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(50));
+			driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(80));
+			
 		}
 	  	
 		@BeforeSuite(alwaysRun = true)
